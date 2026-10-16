@@ -1,0 +1,17 @@
+// Локальные шрифты: файлы .woff2 — в src/assets/fonts/<семейство>/
+//
+// @include font-face('Involve', 'involve/Involve-Regular', 400);
+// @include font-face('Involve', 'involve/Involve-Bold', 700);
+//
+// Если буквы в строке сидят выше/ниже, чем в Figma (разные метрики hhea / win в шрифте),
+// добавить в @font-face ascent-override / descent-override / line-gap-override.
+
+@mixin font-face($family, $file, $weight, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('@/assets/fonts/#{$file}.woff2') format('woff2');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}

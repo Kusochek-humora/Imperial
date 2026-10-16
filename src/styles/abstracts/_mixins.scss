@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "sass:math";
+@use "variables" as *;
+
+// Desktop-first: стили пишутся под макет, ниже — переопределения
+// @include media('lg') { ... }  →  @media (max-width: 1024px)
+@mixin media($bp) {
+  @if not map.has-key($breakpoints, $bp) {
+    @error 'Unknown breakpoint `#{$bp}`. Available: #{map.keys($breakpoints)}';
+  }
+
+  @media (max-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition-simple {
+  transition: 0.3s all;
+}
+
+// hover только на устройствах с мышью (на тач-экранах не "залипает") + фокус с клавиатуры
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+  &:focus-visible {
+    @content;
+  }
+}
+
+// Плавный размер: $min на экране $min-vw, $max на $max-vw и шире, между ними — линейно.
+// font-size: fluid(26px, 48px);  →  clamp(26px, 5.01px + 5.6vw, 48px)
+@function fluid($min, $max, $min-vw: 375px, $max-vw: 768px) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  $vw: math.div(math.round($slope * 10000), 100) * 1vw;
+  $px: math.div(math.round($intercept * 100), 100);
+  @return clamp(#{$min}, #{$px} + #{$vw}, #{$max});
+}

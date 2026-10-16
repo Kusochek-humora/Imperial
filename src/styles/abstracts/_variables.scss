@@ -1,0 +1,22 @@
+// Breakpoints (desktop-first, max-width). Порядок — от большего к меньшему
+$breakpoints: (
+  "xl": 1280px,
+  "lg": 1024px,
+  "md": 768px,
+  "sm": 576px
+);
+
+// colors
+$white: #fff;
+$black: #000;
+$primary: #03467c;
+$primary-hover: #02345c;
+
+// fonts
+$font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+// layout
+$container-width: 1280px;
+$container-padding: 20px;
+
+$transition: 0.3s all;

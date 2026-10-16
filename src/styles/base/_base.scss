@@ -1,0 +1,53 @@
+@use "../abstracts" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  font-family: $font-main;
+  color: $black;
+  background-color: $white;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-width + $container-padding * 2;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include media("lg") {
+    padding: 0 15px;
+  }
+  @include media("sm") {
+    padding: 0 10px;
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// ссылка «Перейти к содержимому» — видна только при фокусе с клавиатуры (первый Tab)
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background-color: $primary;
+  color: $white;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+
+  &:focus-visible {
+    transform: none;
+  }
+}
+
+main:focus {
+  outline: none; // фокус сюда ставит только skip-link
+}
