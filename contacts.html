@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Контакты"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Контакты</span></li>
+        </ol>
+      </nav>
+        <h1 class="visually-hidden">Контакты Imperial Properties</h1>
+        <div class="contacts container">
+          <include src="src/components/contacts-card/contacts-card.html" mod="contacts-card--bordered contacts__card"></include>
+          <div class="contacts__photo slider js-slider">
+            <ul class="slider__track js-slider-track" aria-label="Фото бизнес-центра">
+              <li class="slider__slide"><img src="/src/assets/img/office.webp" alt="Бизнес-центр Capital Tower" width="400" height="420" /></li>
+              <li class="slider__slide"><img src="/src/assets/img/home/about-2.webp" alt="Вход в бизнес-центр" width="400" height="420" loading="lazy" /></li>
+              <li class="slider__slide"><img src="/src/assets/img/home/object-1.webp" alt="Офисы бизнес-центра" width="400" height="420" loading="lazy" /></li>
+            </ul>
+            <div class="slider__dots js-slider-dots" aria-label="Фото"></div>
+          </div>
+          <include src="src/components/map/map.html" mod="map--fill contacts__map"></include>
+        </div>
+      </div>
+      <include src="src/sections/consult/consult-photo.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

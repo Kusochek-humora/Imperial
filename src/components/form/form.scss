@@ -1,0 +1,45 @@
+@use "@/styles/abstracts" as *;
+
+$error: #e5484d;
+
+// поле с ошибкой
+.input[aria-invalid="true"],
+.select.is-invalid .input {
+  outline: 1px solid $error;
+}
+
+.upload.is-invalid {
+  border-color: $error;
+}
+
+.field-error {
+  margin-top: -4px;
+  color: $error;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  text-align: left;
+
+  .upload & {
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+// на тёмном фоне красный светлее — для контраста
+.consult,
+.owners,
+.career__form {
+  .field-error {
+    color: #ff8a8d;
+  }
+
+  .input[aria-invalid="true"],
+  .select.is-invalid .input {
+    outline-color: #ff8a8d;
+  }
+}
+
+[type="submit"]:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}

@@ -1,0 +1,25 @@
+<!-- Выдача объектов: карта, сортировка, сетка, пагинация.
+     Параметры: count — «Показано: …»; mod — catalog--favorites (кнопка «Очистить избранные», без пагинации) -->
+<section class="catalog {{mod}} container">
+  <div class="catalog__map" data-catalog-map>
+    <include src="src/components/map/map.html" mod="catalog__map-frame"></include>
+  </div>
+
+  <div class="catalog__bar">
+    <button class="btn btn--line catalog__clear js-favorites-clear" type="button">Очистить избранные</button>
+    <include src="src/components/select-menu/select-menu.html" name="sort" mod="select-menu--center"></include>
+    <p class="catalog__count">Показано: {{count|157 предложений}}</p>
+  </div>
+
+  <div class="cards-grid catalog__grid js-catalog-grid">
+    <include src="src/sections/objects-preview/objects-list.html"></include>
+    <include src="src/sections/objects-preview/objects-list.html"></include>
+    <include src="src/sections/objects-preview/objects-list.html"></include>
+  </div>
+
+  <p class="catalog__empty" hidden>В избранном пока нет объектов. Отмечайте понравившиеся звёздочкой в <a href="./catalog.html">каталоге</a>.</p>
+
+  <div class="catalog__pages">
+    <include src="src/components/pagination/pagination.html"></include>
+  </div>
+</section>

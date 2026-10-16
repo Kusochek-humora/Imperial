@@ -15,3 +15,6 @@
     font-display: swap;
   }
 }
+
+// Manrope (латиница и цифры) — только для пагинации
+@include font-face('Manrope', 'manrope/Manrope-Regular', 400);

@@ -1,0 +1,122 @@
+@use "@/styles/abstracts" as *;
+
+// карта прилегает к баннерам каталога плотнее, чем секции
+.page-group + .catalog {
+  margin-top: -40px;
+
+  @include media("md") {
+    margin-top: -36px;
+  }
+}
+
+// без баннеров (купить, снять, избранное): карта ближе к фильтру
+.page-hero--catalog + .catalog {
+  margin-top: -40px;
+
+  @include media("md") {
+    margin-top: -46px;
+  }
+}
+
+// мобильный режим карты: баннеры скрыты, карта сразу под панелью фильтра
+@include media("md") {
+  .is-map-view .catalog-links {
+    display: none;
+  }
+
+  .is-map-view .page-group + .catalog {
+    margin-top: -46px;
+  }
+}
+
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  // отступ сверху задаёт .page; карта прилегает к баннерам/hero
+  &__map .map {
+    height: 368px;
+
+    @include media("md") {
+      height: 162px;
+    }
+  }
+
+  &__map[hidden] {
+    display: none;
+  }
+
+  &__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+
+    @include media("sm") {
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+
+  &__count {
+    margin-left: auto;
+    color: rgba($black, 0.5);
+    font-size: 18px;
+
+    @include media("sm") {
+      display: none;
+    }
+  }
+
+  &__clear {
+    display: none;
+    order: -1;
+  }
+
+  &__empty {
+    padding: 40px 0;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__pages {
+    margin-top: 22px;
+  }
+
+  // избранное: «Очистить» вместо счётчика, без пагинации
+  &--favorites {
+    .catalog__clear {
+      display: inline-flex;
+    }
+
+    .catalog__count,
+    .catalog__pages {
+      display: none;
+    }
+
+    .catalog__bar {
+      justify-content: flex-start;
+      gap: 32px;
+
+      @include media("sm") {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+
+        .catalog__clear {
+          width: 100%;
+        }
+
+        .select-menu {
+          align-self: center;
+        }
+      }
+    }
+  }
+}

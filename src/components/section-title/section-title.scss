@@ -67,6 +67,11 @@
 
   &__title {
     max-width: 640px;
+
+    &:empty {
+      display: none;
+    }
+
     padding: 0 var(--gutter);
     font-weight: 400;
     @include h2;

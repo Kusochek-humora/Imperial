@@ -1,0 +1,102 @@
+@use "@/styles/abstracts" as *;
+
+.select-menu {
+  position: relative;
+  display: inline-block;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 38px;
+    padding: 0 16px;
+    background-color: $light;
+    @include transition-simple;
+
+    @include hover {
+      background-color: #ececec;
+    }
+  }
+
+  // в макете период — крупнее
+  &--lg &__toggle {
+    height: 40px;
+    font-size: 18px;
+  }
+
+  &__chevron {
+    transition: transform 0.25s ease;
+  }
+
+  &__list {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 20px);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 198px;
+    padding: 20px;
+    border: 1px solid #c89a33;
+    background-color: $white;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
+  }
+
+  &.is-open &__list {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  &.is-open &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    input {
+      flex-shrink: 0;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      border: 1px solid #c89a33;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:checked {
+        background: radial-gradient(circle, #d2a63b 0 4.5px, transparent 5px);
+      }
+
+      &:focus-visible {
+        outline: 1px solid $gold;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  // на мобильных список по центру
+  @include media("sm") {
+    &--center &__list {
+      left: 50%;
+      transform: translate(-50%, -6px);
+    }
+
+    &--center.is-open &__list {
+      transform: translateX(-50%);
+    }
+  }
+}

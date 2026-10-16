@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Офис в бизнес-центре Imperial Plaza"></include>
+  </head>
+  <body data-nav="catalog.html">
+    <include src="src/layout/top.html"></include>
+
+    <main class="page page--product" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./catalog.html">Каталог объектов</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Офис в бизнес-центре Imperial Plaza</span></li>
+        </ol>
+      </nav>
+      </div>
+      <include src="src/sections/product/product.html"></include>
+      <include src="src/sections/consult/consult-map.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

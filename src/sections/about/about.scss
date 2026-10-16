@@ -1,6 +1,11 @@
 @use "@/styles/abstracts" as *;
 
 .about {
+  // на странице «О компании» — без кнопки
+  &--page .about__more {
+    display: none;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -40,7 +45,7 @@
     }
 
     @include media("md") {
-      min-height: 360px;
+      min-height: 184px;
     }
   }
 
@@ -59,7 +64,6 @@
 
     @include media("md") {
       min-height: 0;
-      padding-top: 160px;
     }
   }
 
@@ -146,5 +150,12 @@
       font-size: 26px;
       white-space: nowrap;
     }
+  }
+}
+
+// «О компании»: на мобильных цифры выше слогана
+.about--page .about__stats {
+  @include media("md") {
+    order: -1;
   }
 }

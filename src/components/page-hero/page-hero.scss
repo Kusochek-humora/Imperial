@@ -1,0 +1,135 @@
+@use "@/styles/abstracts" as *;
+
+// Фото-шапка внутренних страниц (каталог, избранное, партнёрская программа)
+.page-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 447px;
+  padding: 36px var(--gutter) 20px;
+  color: $white;
+  background-color: $black;
+
+  &__bg,
+  &__overlay {
+    @include cover;
+  }
+
+  &__bg {
+    object-fit: cover;
+  }
+
+  &__overlay {
+    background-color: rgba($black, 0.45);
+  }
+
+  .breadcrumbs,
+  &__content,
+  &__filter {
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 400;
+    @include h1;
+  }
+
+  &__text {
+    max-width: 960px;
+
+    &:empty {
+      display: none;
+    }
+
+    @include t2;
+    line-height: 1.2;
+
+    @include media("md") {
+      font-size: 16px;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 348px);
+    gap: 10px;
+    margin-top: 8px;
+
+    @include media("md") {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+  }
+
+  &__filter {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  // фильтр каталога: прижат к низу, без собственного отступа
+  &--catalog {
+    padding-bottom: 0;
+
+    .filter {
+      margin: 0 calc(var(--gutter) * -1);
+    }
+  }
+
+  // партнёрка: выше, текста больше
+  &--tall {
+    min-height: 447px;
+    padding-bottom: 40px;
+  }
+
+  @include media("md") {
+    min-height: 0;
+
+    &__content {
+      padding: 48px 0 32px;
+    }
+
+    // панель фильтра — белая полоса под фото
+    &--catalog .page-hero__filter {
+      width: auto;
+      max-width: none;
+      margin: 0 calc(var(--gutter) * -1);
+      padding: 20px var(--gutter) 10px;
+      background-color: $white;
+      color: $black;
+    }
+
+    &--catalog .filter {
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    &--catalog .filter__tabs {
+      background-color: $light;
+    }
+
+    &--catalog .filter__map,
+    &--catalog .filter__open {
+      border: 1px solid $black;
+      background-color: $white;
+    }
+
+    &--catalog .filter__map[aria-pressed="true"] {
+      border-color: transparent;
+      background: $gold-gradient;
+      color: $white;
+    }
+  }
+}

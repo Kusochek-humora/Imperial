@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Избранные объекты"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <include src="src/sections/catalog/catalog-hero.html" title="Избранные объекты" crumb="Избранные"></include>
+      <include src="src/sections/catalog/catalog.html" mod="catalog--favorites"></include>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

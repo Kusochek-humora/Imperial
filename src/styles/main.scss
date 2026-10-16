@@ -2,6 +2,8 @@
 @use 'base/reset';
 @use 'base/base';
 @use 'base/ui';
+@use 'base/reveal';
 @use 'pages/home';
+@use 'pages/inner';
 
 // стили компонентов и секций подключаются из их js (import './hero.scss')

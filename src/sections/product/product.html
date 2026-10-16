@@ -1,0 +1,91 @@
+<section class="product container">
+  <!-- галерея -->
+  <div class="product__gallery slider js-slider">
+    <span class="product__badge">Exclusive property</span>
+    <ul class="slider__track js-slider-track" aria-label="Фотографии объекта">
+      <li class="slider__slide"><img src="/src/assets/img/home/object-1.webp" alt="Офис в бизнес-центре Imperial Plaza — фасад" width="943" height="510" /></li>
+      <li class="slider__slide"><img src="/src/assets/img/home/object-4.webp" alt="Офис в бизнес-центре Imperial Plaza — вид сбоку" width="943" height="510" loading="lazy" /></li>
+      <li class="slider__slide"><img src="/src/assets/img/home/object-3.webp" alt="Офис в бизнес-центре Imperial Plaza — окрестности" width="943" height="510" loading="lazy" /></li>
+      <li class="slider__slide"><img src="/src/assets/img/home/object-2.webp" alt="Офис в бизнес-центре Imperial Plaza — входная группа" width="943" height="510" loading="lazy" /></li>
+    </ul>
+    <div class="slider__nav">
+      <button class="slider__btn slider__btn--prev js-slider-prev" type="button" aria-label="Предыдущее фото"><icon name="arrow"></icon></button>
+      <button class="slider__btn js-slider-next" type="button" aria-label="Следующее фото"><icon name="arrow"></icon></button>
+    </div>
+  </div>
+
+  <!-- карточка с ценой -->
+  <aside class="product__aside">
+    <div class="product__card">
+      <div class="product__tools">
+        <button class="product__tool js-share" type="button" aria-label="Поделиться"><icon name="share"></icon></button>
+        <button class="product__tool js-fav" type="button" aria-label="В избранное" aria-pressed="false"><icon name="star"></icon></button>
+      </div>
+      <h1 class="product__title">Офис в бизнес-центре Imperial Plaza</h1>
+      <p class="product__area">407.5 м²</p>
+      <ul class="product__info">
+        <li><b>Адрес:</b> г. Алматы, пр. Назарбаева, 240</li>
+        <li><b>Район:</b> Бостандыкский район</li>
+        <li><b>2GIS:</b> <a href="https://2gis.kz/almaty" target="_blank" rel="noopener">Смотреть адрес</a></li>
+        <li><b>Номер объекта:</b> 12</li>
+      </ul>
+      <a class="product__phone" href="tel:+77016728810"><icon name="phone"></icon>+7 (701) 672 88 10</a>
+      <div class="product__prices">
+        <div>
+          <p class="product__price-label">Общая стоимость</p>
+          <p class="product__price">520 000 000 ₸</p>
+        </div>
+        <div>
+          <p class="product__price-label">Стоимость за м²</p>
+          <p class="product__price">25 000 ₸ / м²</p>
+        </div>
+      </div>
+    </div>
+    <div class="product__actions">
+      <a class="btn btn--black product__download" href="#" download>Скачать презентацию</a>
+      <button class="product__fav js-fav" type="button" aria-label="В избранное" aria-pressed="false"><icon name="star"></icon></button>
+      <a class="btn btn--gold product__visit" href="#consult">Записаться на просмотр</a>
+    </div>
+  </aside>
+
+  <!-- описание -->
+  <div class="product__about read-more js-read-more">
+    <h2 class="product__subtitle">Объект, который работает на статус бизнеса</h2>
+    <div class="read-more__body">
+      <p>Уникальное отдельно стоящее коммерческое помещение в одной из престижных локаций Астаны — в районе Пирамиды, на пересечении ул. Жумекен Нажимеденов и пр. Тәуелсіздік.</p>
+      <p>Объект сочетает выразительную архитектуру, премиальную отделку, продуманную инженерную инфраструктуру и высокую визуальную доступность с центральной улицы. Объект сочетает выразительную архитектуру, премиальную отделку, продуманную инженерную инфраструктуру и высокую визуальную доступность с центральной улицы.</p>
+      <p>Свободная планировка, три входные группы, витражное остекление и отдельное здание позволяют адаптировать пространство под различные бизнес-концепции. Свободная планировка, три входные группы, витражное остекление и отдельное здание позволяют адаптировать пространство под различные бизнес-концепции.</p>
+      <p>Подходит для шоурума, ресторана, медицинского или образовательного центра, офиса крупной компании или флагманского магазина.</p>
+    </div>
+    <button class="read-more__toggle" type="button" aria-expanded="false"><span>Читать полностью</span><icon name="chevron"></icon></button>
+  </div>
+
+  <div class="product__specs">
+    <dl class="specs">
+      <div class="specs__row"><dt>Площадь, м²</dt><dd>407.5</dd></div>
+      <div class="specs__row"><dt>Высота потолков</dt><dd>4,7 м.</dd></div>
+      <div class="specs__row"><dt>Электрическая мощность</dt><dd>86 кВт</dd></div>
+      <div class="specs__row"><dt>Входные группы</dt><dd>3</dd></div>
+      <div class="specs__row"><dt>Парковка</dt><dd>34 места</dd></div>
+    </dl>
+    <button class="btn btn--black product__share js-share" type="button"><icon name="share"></icon>Поделиться</button>
+  </div>
+</section>
+
+<section class="section">
+  <include src="src/components/section-title/section-title.html" text="Видео-обзор"></include>
+  <div class="container">
+    <button class="video" type="button" aria-label="Смотреть видео-обзор объекта">
+      <img src="/src/assets/img/home/object-1.webp" alt="" width="1420" height="550" loading="lazy" />
+      <span class="video__play"><icon name="play"></icon></span>
+    </button>
+  </div>
+</section>
+
+<!-- на мобильных карта — отдельным блоком (в консультации её нет) -->
+<section class="section product-location">
+  <include src="src/components/section-title/section-title.html" text="Расположение объекта"></include>
+  <div class="container">
+    <include src="src/components/map/map.html"></include>
+  </div>
+</section>

@@ -12,7 +12,7 @@
     background-color: $gray;
 
     @include media("md") {
-      height: 280px;
+      height: 220px;
     }
   }
 
@@ -50,7 +50,8 @@
     @include t2;
 
     @include media("sm") {
-      font-size: 18px;
+      font-size: 16px;
+      white-space: nowrap;
     }
   }
 

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Для арендодателей"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./services.html">Услуги</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Для арендодателей</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Для арендодателей" tag="p"></include>
+          <h1 class="section-head__title">Сдайте объект надёжному арендатору на выгодных условиях.</h1>
+          <p class="section-head__text">Подготовим объект к выходу на рынок, найдём арендатора, проведём переговоры и сопроводим сделку до заключения договора.</p>
+        </div>
+        <include src="src/sections/services/compare.html"></include>
+      </div>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Как проходит работа"></include>
+        <ol class="steps container">
+          <li class="step"><span class="step__num">01</span><h3 class="step__title">Оценка</h3><p>Определяем рыночную ставку и потенциал объекта.</p></li>
+          <li class="step"><span class="step__num">02</span><h3 class="step__title">Подготовка</h3><p>Готовим документы, фото и презентацию объекта.</p></li>
+          <li class="step"><span class="step__num">03</span><h3 class="step__title">Продвижение</h3><p>Выводим объект на рынок и работаем с базой арендаторов.</p></li>
+          <li class="step"><span class="step__num">04</span><h3 class="step__title">Переговоры</h3><p>Согласовываем условия с арендатором.</p></li>
+          <li class="step"><span class="step__num">05</span><h3 class="step__title">Сделка</h3><p>Сопровождаем подписание договора аренды.</p></li>
+        </ol>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Почему арендодатели выбирают нас"></include>
+        <ul class="tiles container">
+          <li class="tile"><h3 class="tile__title">Экспертный подбор</h3><p class="tile__text">Учитываем задачи и специфику бизнеса, чтобы подобрать объект, соответствующий требованиям и коммерческим целям арендатора.</p></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Доступ к объектам</h3><p class="tile__text">Предлагаем актуальные варианты коммерческой недвижимости.</p></li>
+          <li class="tile tile--photo"><img src="/src/assets/img/home/object-4.webp" alt="" width="467" height="230" loading="lazy" /></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Переговоры с собственником</h3><p class="tile__text">Помогаем согласовать оптимальные условия аренды.</p></li>
+          <li class="tile"><h3 class="tile__title">Экономия времени</h3><p class="tile__text">Берем на себя поиск, коммуникацию и организацию просмотров.</p></li>
+          <li class="tile"><h3 class="tile__title">Полное сопровождение</h3><p class="tile__text">Берём на себя организационные и переговорные вопросы от первого контакта до завершения сделки.</p></li>
+        </ul>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="FAQ"></include>
+        <div class="faq-list container">
+          <include src="src/components/faq-item/faq-item.html" open="open"
+            question="1. Как определяется арендная ставка?"
+            answer="Анализируем характеристики объекта, его расположение, состояние и актуальные предложения на рынке."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="2. Чем эксклюзивный договор отличается от типового?"
+            answer="По эксклюзивному договору мы берём на себя полный цикл: подготовку объекта, продвижение, отбор арендаторов и сопровождение сделки."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="3. Как вы проверяете арендаторов?"
+            answer="Анализируем бизнес арендатора, его финансовую устойчивость и репутацию."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="4. Сколько времени занимает поиск арендатора?"
+            answer="Срок зависит от типа объекта, ставки и ситуации на рынке — обычно от нескольких недель."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="5. Можно ли сдать объект, который ещё ремонтируется?"
+            answer="Да, мы можем начать продвижение заранее и подобрать арендатора к завершению работ."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="6. Сопровождаете ли вы сделку юридически?"
+            answer="Да, юристы компании готовят договор и сопровождают сделку."></include>
+        </div>
+      </section>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

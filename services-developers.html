@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Для девелоперов"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./services.html">Услуги</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Для девелоперов</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Для девелоперов" tag="p"></include>
+          <h1 class="section-head__title">Сопровождаем проекты на всех этапах реализации.</h1>
+          <p class="section-head__text">От анализа рынка и концепции до продажи и сдачи площадей — помогаем девелоперам реализовать проект эффективно.</p>
+        </div>
+        <include src="src/sections/services/compare.html"></include>
+      </div>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Как проходит работа"></include>
+        <ol class="steps container">
+          <li class="step"><span class="step__num">01</span><h3 class="step__title">Анализ</h3><p>Изучаем рынок и локацию проекта.</p></li>
+          <li class="step"><span class="step__num">02</span><h3 class="step__title">Концепция</h3><p>Предлагаем формат и наполнение объекта.</p></li>
+          <li class="step"><span class="step__num">03</span><h3 class="step__title">Продвижение</h3><p>Готовим маркетинг и выводим проект на рынок.</p></li>
+          <li class="step"><span class="step__num">04</span><h3 class="step__title">Реализация</h3><p>Продаём и сдаём площади.</p></li>
+          <li class="step"><span class="step__num">05</span><h3 class="step__title">Сопровождение</h3><p>Сопровождаем сделки и работу с клиентами.</p></li>
+        </ol>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Почему девелоперы выбирают нас"></include>
+        <ul class="tiles container">
+          <li class="tile"><h3 class="tile__title">Экспертный подбор</h3><p class="tile__text">Учитываем задачи и специфику бизнеса, чтобы подобрать объект, соответствующий требованиям и коммерческим целям арендатора.</p></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Доступ к объектам</h3><p class="tile__text">Предлагаем актуальные варианты коммерческой недвижимости.</p></li>
+          <li class="tile tile--photo"><img src="/src/assets/img/home/object-4.webp" alt="" width="467" height="230" loading="lazy" /></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Переговоры с собственником</h3><p class="tile__text">Помогаем согласовать оптимальные условия аренды.</p></li>
+          <li class="tile"><h3 class="tile__title">Экономия времени</h3><p class="tile__text">Берем на себя поиск, коммуникацию и организацию просмотров.</p></li>
+          <li class="tile"><h3 class="tile__title">Полное сопровождение</h3><p class="tile__text">Берём на себя организационные и переговорные вопросы от первого контакта до завершения сделки.</p></li>
+        </ul>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="FAQ"></include>
+        <div class="faq-list container">
+          <include src="src/components/faq-item/faq-item.html" open="open"
+            question="1. На каком этапе лучше обратиться?"
+            answer="Чем раньше, тем лучше — на этапе концепции мы поможем определить формат и спрос."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="2. Работаете ли вы с крупными проектами?"
+            answer="Да, сопровождаем бизнес-центры, торговые комплексы и многофункциональные объекты."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="3. Берёте ли вы на себя продажу площадей?"
+            answer="Да, мы реализуем площади по эксклюзивному договору."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="4. Помогаете ли вы с арендаторами?"
+            answer="Да, подбираем якорных и сетевых арендаторов."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="5. Готовите ли вы маркетинговые материалы?"
+            answer="Да, презентации, тизеры, фото и видео объекта."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="6. Как определяется вознаграждение?"
+            answer="Условия обсуждаются индивидуально под проект."></include>
+        </div>
+      </section>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

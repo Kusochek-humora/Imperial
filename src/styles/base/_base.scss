@@ -98,3 +98,10 @@ body {
 main:focus {
   outline: none; // фокус сюда ставит только skip-link
 }
+
+// Блоки, стоящие вплотную (без отступа секций): hero каталога + баннеры
+.page-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

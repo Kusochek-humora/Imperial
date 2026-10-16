@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Новости"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Новости</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Новости" tag="p"></include>
+          <h1 class="section-head__title">Следим за рынком. Знаем больше.</h1>
+          <p class="section-head__text">Актуальные новости Imperial Properties, изменения на рынке коммерческой недвижимости, аналитика и экспертные материалы.</p>
+        </div>
+        <include src="src/sections/news-list/news-list.html"></include>
+      </div>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

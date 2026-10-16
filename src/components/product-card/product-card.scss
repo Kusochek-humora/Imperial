@@ -113,9 +113,6 @@
     }
   }
 
-  @include media("md") {
-    min-height: 0;
-  }
 }
 
 // Сетка карточек (объекты, новости): 4 → 3 → 2 → 1 колонки
@@ -137,6 +134,26 @@
   // на мобильных на главной показываем 3 карточки
   &--mobile-3 > :nth-child(n + 4) {
     @include media("sm") {
+      display: none;
+    }
+  }
+}
+
+// на мобильных — лента со свайпом (команда)
+.cards-grid--scroll {
+  @include media("sm") {
+    grid-template-columns: none;
+    grid-auto-columns: 66%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    > * {
+      scroll-snap-align: start;
+    }
+
+    &::-webkit-scrollbar {
       display: none;
     }
   }

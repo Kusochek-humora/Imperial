@@ -24,12 +24,13 @@
   }
 
   &__photo {
+    position: relative;
     min-height: 372px;
+    overflow: hidden;
     background-color: #1f1f1f;
 
     img {
-      width: 100%;
-      height: 100%;
+      @include cover;
       object-fit: cover;
     }
 
@@ -51,7 +52,6 @@
     gap: 10px;
 
     .input--textarea {
-      flex: 1;
       min-height: 150px;
     }
 
@@ -66,12 +66,8 @@
     }
   }
 
-  // без карточки контактов: фото + форма
-  &--no-contacts {
-    .consult__contacts {
-      display: none;
-    }
-
+  // две половины: карта или фото + форма
+  &--half {
     .consult__grid {
       grid-template-columns: 1fr 1fr;
 
@@ -83,5 +79,19 @@
     .consult__photo {
       display: block;
     }
+
+    // на мобильных — только форма (карта/фото есть выше на странице)
+    .consult__photo,
+    .consult__map {
+      @include media("md") {
+        display: none;
+      }
+    }
+  }
+}
+
+@include media("md") {
+  .consult:not(.consult--photo) .input--textarea {
+    display: none;
   }
 }

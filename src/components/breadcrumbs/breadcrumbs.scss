@@ -1,0 +1,92 @@
+@use "@/styles/abstracts" as *;
+
+// Хлебные крошки. На мобильных — в одну строку, последний пункт обрезается многоточием
+.breadcrumbs {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 6px;
+
+    @include media("md") {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+
+    & + &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      margin: 0 13px 0 9px;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    &--hidden {
+      display: none;
+    }
+
+    &:not(:last-child) {
+      flex-shrink: 0;
+    }
+
+    &:last-child span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__link {
+    flex-shrink: 0;
+    @include transition-simple;
+
+    @include hover {
+      color: $gold;
+    }
+  }
+
+  &--light {
+    color: $white;
+  }
+}
+
+// Верх обычной страницы: крошки → плашка → H1 → текст → первый блок
+.page-top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 36px;
+
+  > .breadcrumbs {
+    margin-bottom: 12px;
+  }
+
+  @include media("md") {
+    padding-top: 20px;
+  }
+}
+
+// Широкая картинка под заголовком страницы
+.page-banner {
+  height: 285px;
+  overflow: hidden;
+  background-color: $gray;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include media("md") {
+    height: 180px;
+  }
+}

@@ -1,0 +1,69 @@
+@use "@/styles/abstracts" as *;
+
+$frame: rgba(#c89a33, 0.7);
+
+// Шаги 01–05 в золотой «разорванной» рамке
+.steps {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 5), 1fr);
+  gap: 10px;
+
+  &--4 {
+    --cols: 4;
+
+    max-width: 1136px;
+    margin: 0 auto;
+  }
+
+  @include media("lg") {
+    --cols: 3;
+  }
+
+  @include media("md") {
+    --cols: 2;
+  }
+
+  @include media("sm") {
+    --cols: 1;
+  }
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 184px;
+  padding: 34px 16px 30px;
+  text-align: center;
+  // рамка из 8 отрезков: сверху и снизу разрыв по центру, по бокам — посередине
+  background:
+    linear-gradient($frame, $frame) left top / 33% 1px no-repeat,
+    linear-gradient($frame, $frame) right top / 33% 1px no-repeat,
+    linear-gradient($frame, $frame) left bottom / 33% 1px no-repeat,
+    linear-gradient($frame, $frame) right bottom / 33% 1px no-repeat,
+    linear-gradient($frame, $frame) left top / 1px 33% no-repeat,
+    linear-gradient($frame, $frame) left bottom / 1px 33% no-repeat,
+    linear-gradient($frame, $frame) right top / 1px 33% no-repeat,
+    linear-gradient($frame, $frame) right bottom / 1px 33% no-repeat;
+
+  &__num {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    color: #c89a33;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  @include media("sm") {
+    min-height: 150px;
+    gap: 24px;
+  }
+}

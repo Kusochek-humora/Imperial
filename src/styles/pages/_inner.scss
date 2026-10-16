@@ -1,0 +1,232 @@
+@use "../abstracts" as *;
+
+// Блоки отдельных внутренних страниц
+
+// поле на белом фоне
+.input--light {
+  background-color: $light;
+}
+
+// кнопка внутри плитки «Подходит для»
+.tile__btn {
+  margin-top: 14px;
+}
+
+// ===== Продать / Сдать: плитки + короткая форма
+.owner-offer {
+  display: grid;
+  grid-template-columns: 695fr 715fr;
+  gap: 10px;
+  align-items: start;
+
+  &__tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    .tile {
+      min-height: 154px;
+      gap: 24px;
+      padding: 16px;
+    }
+
+    .tile__title {
+      font-size: 20px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  @include media("lg") {
+    grid-template-columns: 1fr;
+  }
+
+  @include media("sm") {
+    &__tiles {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// ===== О компании: цитата — фото — текст
+.history {
+  display: grid;
+  grid-template-columns: 505fr 204fr 671fr;
+  gap: 20px;
+  align-items: start;
+
+  &__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 324px;
+    background-color: $gray;
+
+    .icon {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  @include media("lg") {
+    grid-template-columns: 1fr 1fr;
+
+    &__text {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include media("md") {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+// ===== О компании: карьера
+.career {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  &__tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    .tile {
+      min-height: 255px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    background-color: $black;
+    color: $white;
+
+    .input {
+      color: $black;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  @include media("lg") {
+    grid-template-columns: 1fr;
+  }
+
+  @include media("sm") {
+    &__tiles {
+      grid-template-columns: 1fr;
+
+      .tile {
+        min-height: 0;
+      }
+    }
+
+    &__form {
+      padding: 20px 16px;
+    }
+  }
+}
+
+// ===== Партнёрка: вознаграждение
+.reward {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 400px;
+  padding: 40px 10px 10px;
+  overflow: hidden;
+  color: $white;
+  background-color: $black;
+
+  > img {
+    @include cover;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+
+  &__title,
+  &__cards {
+    position: relative;
+  }
+
+  &__title {
+    text-align: center;
+    @include h2;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+    background-color: rgba($white, 0.25);
+    backdrop-filter: blur(4px);
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  @include media("sm") {
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@include media("sm") {
+  .career__tiles > .tile {
+    order: var(--m-order, 0);
+  }
+
+  // «Продать / Сдать»: кнопка формы на мобильных чёрная
+  .owner-offer__form .btn--gold {
+    background: $black;
+  }
+}
+
+// «О компании»: на мобильных текст → фото → цитата
+@include media("md") {
+  .history__text {
+    order: 1;
+  }
+
+  .history__photo {
+    order: 2;
+  }
+
+  .history__quote {
+    order: 3;
+  }
+
+  // партнёрка: текст про вознаграждение выше фото
+  .reward {
+    order: 2;
+  }
+}

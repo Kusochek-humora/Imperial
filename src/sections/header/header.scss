@@ -101,6 +101,12 @@ $nav-height: 50px;
     width: 24px;
     height: 24px;
 
+    // избранное открыто — звезда золотая
+    &[aria-current="page"] .icon path {
+      fill: url(#gold-gradient);
+      stroke: url(#gold-gradient);
+    }
+
     & + .header__cta {
       margin-left: 10px;
     }
@@ -155,7 +161,8 @@ $nav-height: 50px;
     white-space: nowrap;
     @include transition-simple;
 
-    &[aria-current="page"] {
+    &[aria-current="page"],
+    &.is-current {
       color: $gold;
     }
 
@@ -416,7 +423,8 @@ $nav-height: 50px;
     @include t3;
     @include transition-simple;
 
-    &[aria-current="page"] {
+    &[aria-current="page"],
+    &.is-current {
       color: #c89a33;
     }
 

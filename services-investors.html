@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Для инвесторов"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./services.html">Услуги</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Для инвесторов</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Для инвесторов" tag="p"></include>
+          <h1 class="section-head__title">Инвестиции в недвижимость с понятной доходностью.</h1>
+          <p class="section-head__text">Помогаем находить перспективные объекты, оценивать инвестиционный потенциал и принимать взвешенные решения.</p>
+        </div>
+        <include src="src/sections/services/checklist.html"></include>
+      </div>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Как проходит работа"></include>
+        <ol class="steps container">
+          <li class="step"><span class="step__num">01</span><h3 class="step__title">Цели</h3><p>Определяем инвестиционную стратегию и бюджет.</p></li>
+          <li class="step"><span class="step__num">02</span><h3 class="step__title">Подбор</h3><p>Отбираем объекты с потенциалом доходности.</p></li>
+          <li class="step"><span class="step__num">03</span><h3 class="step__title">Анализ</h3><p>Оцениваем доходность и риски.</p></li>
+          <li class="step"><span class="step__num">04</span><h3 class="step__title">Переговоры</h3><p>Согласовываем условия сделки.</p></li>
+          <li class="step"><span class="step__num">05</span><h3 class="step__title">Сделка</h3><p>Сопровождаем покупку и дальнейшее управление.</p></li>
+        </ol>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Почему инвесторы выбирают нас"></include>
+        <ul class="tiles container">
+          <li class="tile"><h3 class="tile__title">Экспертный подбор</h3><p class="tile__text">Учитываем задачи и специфику бизнеса, чтобы подобрать объект, соответствующий требованиям и коммерческим целям арендатора.</p></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Доступ к объектам</h3><p class="tile__text">Предлагаем актуальные варианты коммерческой недвижимости.</p></li>
+          <li class="tile tile--photo"><img src="/src/assets/img/home/object-4.webp" alt="" width="467" height="230" loading="lazy" /></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Переговоры с собственником</h3><p class="tile__text">Помогаем согласовать оптимальные условия аренды.</p></li>
+          <li class="tile"><h3 class="tile__title">Экономия времени</h3><p class="tile__text">Берем на себя поиск, коммуникацию и организацию просмотров.</p></li>
+          <li class="tile"><h3 class="tile__title">Полное сопровождение</h3><p class="tile__text">Берём на себя организационные и переговорные вопросы от первого контакта до завершения сделки.</p></li>
+        </ul>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="FAQ"></include>
+        <div class="faq-list container">
+          <include src="src/components/faq-item/faq-item.html" open="open"
+            question="1. Какие объекты подходят для инвестиций?"
+            answer="Офисы, торговые помещения, склады и арендный бизнес с понятной доходностью."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="2. Рассчитываете ли вы доходность объекта?"
+            answer="Да, готовим финансовую модель с прогнозом доходности и окупаемости."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="3. Помогаете ли вы найти арендатора после покупки?"
+            answer="Да, мы сопровождаем объект и после сделки."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="4. Есть ли закрытые инвестиционные предложения?"
+            answer="Да, часть объектов доступна только клиентам компании."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="5. Можно ли привлечь финансирование?"
+            answer="Да, помогаем привлечь банковское финансирование."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="6. Работаете ли вы с зарубежной недвижимостью?"
+            answer="Да, сопровождаем подбор объектов на международных рынках."></include>
+        </div>
+      </section>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

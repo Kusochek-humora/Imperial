@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="О компании"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">О компании</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="О компании" tag="p"></include>
+          <h1 class="section-head__title">Мы продаём только то, что купили бы сами</h1>
+          <p class="section-head__text">Этот принцип лежит в основе работы Imperial Properties: мы оцениваем не только сам объект, но и его потенциал, ликвидность, расположение, финансовую привлекательность и перспективы.</p>
+        </div>
+        <div class="page-banner container"><img src="/src/assets/img/home/hero.webp" alt="" width="1420" height="285" /></div>
+      </div>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="История компании"></include>
+        <div class="history container">
+          <figure class="quote history__quote">
+            <img src="/src/assets/img/home/about-1.webp" alt="" width="505" height="324" loading="lazy" />
+            <span class="quote__mark quote__mark--open"><icon name="quote"></icon></span>
+            <blockquote class="quote__text">Мы продаём только то, что купили бы сами</blockquote>
+            <figcaption>Команда Imperial Properties</figcaption>
+            <span class="quote__mark quote__mark--close"><icon name="quote"></icon></span>
+          </figure>
+          <div class="history__photo">
+            <icon name="profile"></icon>
+          </div>
+          <div class="history__text">
+            <h2 class="split__title">Imperial Properties — эксперты в сфере недвижимости</h2>
+            <div class="split__text">
+              <p>Компания «Imperial Properties» основана Александром Белым в 2011 году и является одной из ведущих и активно развивающихся агентств недвижимости на рынке Алматы, предлагающая полный комплекс услуг по продаже, покупке и аренде коммерческой недвижимости и участков.</p>
+              <p>За годы работы компания прошла путь от классического агентства недвижимости до команды, которая сопровождает сложные сделки и работает с объектами, требующими глубокого анализа, индивидуальной стратегии и профессионального сопровождения.</p>
+              <p>Сегодня <b>Imperial Properties</b> объединяет экспертизу в жилой и коммерческой недвижимости, инвестиционном консалтинге, маркетинге объектов и сопровождении сделок.</p>
+              <p>С уважением, <b>Александр Белый</b><br />Управляющий партнер «Imperial Properties»</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Миссия и ценности" tag="p"></include>
+          <p class="section-head__text">Мы объединяем глубокую экспертизу рынка, индивидуальный подход и комплексное сопровождение, чтобы каждая сделка была продуманным решением, а не просто покупкой или продажей недвижимости.</p>
+        </div>
+        <ol class="steps container">
+          <li class="step"><span class="step__num">01</span><h3 class="step__title">Доверие</h3><p>Строим долгосрочные отношения с клиентами на надежности и взаимном уважении.</p></li>
+          <li class="step"><span class="step__num">02</span><h3 class="step__title">Прозрачность</h3><p>Работаем открыто, честно и придерживаемся высоких стандартов деловой этики.</p></li>
+          <li class="step"><span class="step__num">03</span><h3 class="step__title">Профессионализм</h3><p>Постоянно развиваем экспертизу и поддерживаем высокий уровень сервиса.</p></li>
+          <li class="step"><span class="step__num">04</span><h3 class="step__title">Ответственность и конфиденциальность</h3><p>Выполняем взятые обязательства и гарантируем конфиденциальность информации.</p></li>
+          <li class="step"><span class="step__num">05</span><h3 class="step__title">Эффективность</h3><p>Ориентируемся на результат и выбираем решения, которые действительно работают.</p></li>
+        </ol>
+      </section>
+      <include src="src/sections/about/about.html" mod="about--page" plaque="Imperial в цифрах" title=""></include>
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Кто мы и чем занимаемся" tag="p"></include>
+          <h2 class="section-head__title">Недвижимость как инструмент возможностей</h2>
+          <p class="section-head__text">Мы работаем с частными клиентами, предпринимателями, инвесторами и владельцами коммерческих объектов, как в Казахстане, так и за рубежом, помогая принимать взвешенные решения и проходить каждый этап сделки уверенно.</p>
+        </div>
+        <ul class="tiles tiles--4 tiles--tall container">
+          <li class="tile tile--photo" style="--m-order: 2"><img src="/src/assets/img/home/hero.webp" alt="" width="467" height="230" loading="lazy" /></li>
+          <li class="tile" style="--m-order: 1"><h3 class="tile__title">Инвестиционный консалтинг</h3><p class="tile__text">Анализируем объект с точки зрения доходности, ликвидности, потенциала роста и возможных сценариев использования.</p></li>
+          <li class="tile tile--dark" style="--m-order: 4"><h3 class="tile__title">Покупка и продажа недвижимости</h3><p class="tile__text">Подбираем недвижимость под конкретные задачи клиента — для жизни, бизнеса или инвестиций.</p></li>
+          <li class="tile" style="--m-order: 3"><h3 class="tile__title">Зарубежная недвижимость</h3><p class="tile__text">Сопровождаем подбор и приобретение объектов на международных рынках.</p></li>
+          <li class="tile tile--photo" style="--m-order: 6"><img src="/src/assets/img/home/about-1.webp" alt="" width="467" height="230" loading="lazy" /></li>
+          <li class="tile" style="--m-order: 5"><h3 class="tile__title">Коммерческая недвижимость</h3><p class="tile__text">Работаем с офисными помещениями, торговыми объектами, зданиями, участками и другими коммерческими активами.</p></li>
+          <li class="tile" style="--m-order: 7"><h3 class="tile__title">Полное сопровождение сделки</h3><p class="tile__text">От анализа объекта и подготовки материалов до переговоров, проверки документов и завершения сделки.</p></li>
+          <li class="tile tile--dark" style="--m-order: 8"><h3 class="tile__title">Аренда</h3><p class="tile__text">Помогаем собственникам найти подходящих арендаторов, а бизнесу — подходящие помещения с учётом локации и площади.</p></li>
+        </ul>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Команда" tag="p"></include>
+          <p class="section-head__text">Наша команда состоит из профессионалов с многолетним опытом в сфере M&amp;A, инвестиций и корпоративных финансов, а также прямых продаж.</p>
+        </div>
+        <div class="cards-grid cards-grid--scroll container">
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+          <include src="src/components/team-card/team-card.html" name="Александр Белый" role="Основатель"></include>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Карьера" tag="p"></include>
+          <h2 class="section-head__title">Стройте карьеру вместе с Imperial Properties</h2>
+          <p class="section-head__text">Мы ищем не просто сотрудников, а специалистов, которые готовы работать с высоким уровнем ответственности, развиваться и создавать результат. Imperial Properties — среда для людей, которым интересны недвижимость, инвестиции, переговоры и предпринимательство.</p>
+        </div>
+        <div class="career container">
+          <ul class="career__tiles">
+            <li class="tile" style="--m-order: 1"><h3 class="tile__title">Профессиональный рост</h3><p class="tile__text">Работа с реальными сделками и сложными задачами позволяет постоянно расширять экспертизу.</p></li>
+            <li class="tile tile--overlay" style="--m-order: 4"><img src="/src/assets/img/home/news-4.webp" alt="" width="348" height="255" loading="lazy" /><h3 class="tile__title">Доход, связанный с результатом</h3><p class="tile__text">Система мотивации ориентирована на личную эффективность и результат.</p></li>
+            <li class="tile tile--dark" style="--m-order: 2"><h3 class="tile__title">Масштабные проекты</h3><p class="tile__text">Коммерческая недвижимость и инвестиционные объекты требуют более глубокого подхода, чем стандартные сделки.</p></li>
+            <li class="tile" style="--m-order: 3"><h3 class="tile__title">Сильное окружение</h3><p class="tile__text">Вы будете работать рядом со специалистами из недвижимости, финансов и бизнеса.</p></li>
+          </ul>
+          <form class="career__form js-request-form" action="#" method="post" enctype="multipart/form-data">
+            <h3 class="career__title">Присоединиться к команде</h3>
+            <p class="career__text">Отправьте нам своё резюме — мы свяжемся с вами, если ваш опыт соответствует текущим задачам команды.</p>
+            <label class="visually-hidden" for="career-name">Имя</label>
+            <input class="input input--light" id="career-name" type="text" name="name" placeholder="Имя" autocomplete="name" required />
+            <label class="visually-hidden" for="career-phone">Телефон</label>
+            <input class="input input--light" id="career-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+            <label class="visually-hidden" for="career-position">Желаемая должность</label>
+            <div class="select">
+              <select class="input input--light" id="career-position" name="position" required>
+                <option value="">Желаемая должность</option>
+                <option>Брокер по коммерческой недвижимости</option>
+                <option>Аналитик</option>
+                <option>Маркетолог</option>
+                <option>Юрист</option>
+                <option>Другое</option>
+              </select>
+              <icon name="chevron" class="select__icon"></icon>
+            </div>
+            <div class="upload js-upload">
+              <p class="upload__title">Загрузите свое резюме</p>
+              <label class="upload__btn">Выберите файл<input type="file" name="resume" accept=".pdf,.doc,.docx" required /></label>
+              <p class="upload__hint">файл в формате .pdf, .doc, .docx</p>
+            </div>
+            <button class="btn btn--gold btn--block" type="submit">Отправить резюме</button>
+          </form>
+        </div>
+      </section>
+      <include src="src/sections/partners/partners.html"></include>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

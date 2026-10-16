@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Продать / Сдать"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Продать / Сдать</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Продать / Сдать" tag="p"></include>
+          <h1 class="section-head__title">Ваш объект — в руках профессионалов</h1>
+          <p class="section-head__text">Мы помогаем собственникам эффективно реализовать коммерческую недвижимость — от определения рыночной стоимости до заключения сделки. Imperial Properties объединяет экспертизу в недвижимости, инвестициях и корпоративных финансах, чтобы подобрать оптимальную стратегию продажи или аренды именно для вашего объекта.</p>
+        </div>
+        <div class="container">
+          <div class="glass-band">
+        <img src="/src/assets/img/home/hero.webp" alt="" width="1420" height="250" loading="lazy" />
+        <ul class="glass-band__cards">
+          <li class="glass-band__card"><h3 class="glass-band__title">Оценка</h3><p>Определяем рыночный потенциал и оптимальную стоимость объекта.</p></li>
+          <li class="glass-band__card"><h3 class="glass-band__title">Стратегия</h3><p>Выбираем подходящий сценарий продажи или сдачи.</p></li>
+          <li class="glass-band__card"><h3 class="glass-band__title">Сделка</h3><p>Переговоры, документы и сопровождение до завершения сделки.</p></li>
+        </ul>
+      </div>
+        </div>
+        <div class="js-tabs">
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="Кому">
+            <button class="tabs__btn" type="button" role="tab" id="tab-sellers" aria-controls="panel-sellers" aria-selected="true">Продавцам</button>
+            <button class="tabs__btn" type="button" role="tab" id="tab-landlords" aria-controls="panel-landlords" aria-selected="false" tabindex="-1">Арендодателям</button>
+          </div>
+        </div>
+        <div id="panel-sellers" role="tabpanel" aria-labelledby="tab-sellers">
+          <include src="src/sections/services/checklist.html"></include>
+        </div>
+        <div id="panel-landlords" role="tabpanel" aria-labelledby="tab-landlords" hidden>
+          <include src="src/sections/services/compare.html"></include>
+        </div>
+      </div>
+      </div>
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Собственникам недвижимости" tag="p"></include>
+          <h2 class="section-head__title">Продайте или сдайте объект на выгодных условиях</h2>
+          <p class="section-head__text">Берём на себя оценку объекта, подготовку к выходу на рынок, поиск подходящего покупателя или арендатора и сопровождение сделки на всех этапах.</p>
+        </div>
+        <div class="owner-offer container">
+          <ul class="owner-offer__tiles">
+            <li class="tile"><h3 class="tile__title">Стратегия реализации</h3><p class="tile__text">Подберем оптимальный сценарий продажи или сдачи.</p></li>
+            <li class="tile tile--overlay"><img src="/src/assets/img/home/news-1.webp" alt="" width="225" height="154" loading="lazy" /><h3 class="tile__title">Сопровождение</h3><p class="tile__text">Возьмем на себя коммуникацию и процесс сделки.</p></li>
+            <li class="tile tile--dark"><h3 class="tile__title">Рыночная оценка</h3><p class="tile__text">Определим актуальный потенциал стоимости объекта.</p></li>
+          </ul>
+          <form class="owner-offer__form js-request-form" action="#" method="post">
+            <label class="visually-hidden" for="sell-name">Имя</label>
+            <input class="input input--light" id="sell-name" type="text" name="name" placeholder="Имя" autocomplete="name" required />
+            <label class="visually-hidden" for="sell-phone">Телефон</label>
+            <input class="input input--light" id="sell-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+            <input type="hidden" name="interest" value="sell" />
+            <button class="btn btn--gold btn--block" type="submit">Получить консультацию</button>
+          </form>
+        </div>
+      </section>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="FAQ"></include>
+        <div class="faq-list container">
+          <include src="src/components/faq-item/faq-item.html" open="open"
+            question="1. Как определяется стоимость объекта?"
+            answer="Анализируем характеристики объекта, его расположение, состояние, рыночное окружение и актуальные предложения."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="2. Можно ли продать объект, который сейчас находится в аренде?"
+            answer="Да, объект с арендатором часто интересен инвесторам — мы учтём это в стратегии продажи."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="3. Работаете ли вы с конфиденциальными продажами?"
+            answer="Да, объект можно предлагать только проверенным покупателям без публичного размещения."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="4. Нужно ли самостоятельно искать покупателя?"
+            answer="Нет, поиск покупателя и переговоры мы берём на себя."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="5. Можно ли обратиться только за оценкой объекта?"
+            answer="Да, оценка доступна как отдельная услуга."></include>
+          <include src="src/components/faq-item/faq-item.html"
+            question="6. Сколько занимает процесс продажи?"
+            answer="Срок зависит от объекта, цены и ситуации на рынке."></include>
+        </div>
+      </section>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

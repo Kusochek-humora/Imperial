@@ -1,0 +1,360 @@
+@use "@/styles/abstracts" as *;
+
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 943fr) minmax(0, 467fr);
+  gap: 48px 10px;
+  margin-top: -44px; // ближе к хлебным крошкам, чем обычные секции
+
+  // ===== галерея
+  &__gallery {
+    position: relative;
+    min-width: 0;
+
+    .slider__track {
+      --per-view: 1;
+
+      gap: 0;
+      height: 510px;
+
+      @include media("md") {
+        height: 290px;
+      }
+    }
+
+    .slider__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    // стрелки поверх фото
+    .slider__nav {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .slider__btn {
+      pointer-events: auto;
+
+      &:disabled {
+        opacity: 0;
+      }
+
+      @include media("sm") {
+        background: $gold-gradient;
+        border: none;
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    padding: 8px 20px;
+    background: $gold-gradient;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  // ===== карточка
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $light;
+  }
+
+  &__tools {
+    display: none;
+  }
+
+  &__title {
+    font-weight: 400;
+    @include h2;
+  }
+
+  &__area {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: 700;
+
+    @include media("sm") {
+      font-size: 24px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 24px;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  &__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    margin-top: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  &__prices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 28px;
+
+    > div + div {
+      padding-left: 40px;
+      border-left: 1px solid #d9d9d9;
+    }
+
+    @include media("sm") {
+      > div + div {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  &__price-label {
+    color: rgba($black, 0.6);
+  }
+
+  &__price {
+    margin-top: 6px;
+    font-size: 32px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    @include media("xl") {
+      font-size: 26px;
+    }
+
+    @include media("sm") {
+      font-size: 22px;
+    }
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: 1fr 42px;
+    gap: 10px;
+
+    .btn {
+      min-height: 42px;
+    }
+  }
+
+  &__visit {
+    grid-column: 1 / -1;
+  }
+
+  &__fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $black;
+    color: $white;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .js-fav.is-active .icon path {
+    fill: url(#gold-gradient);
+    stroke: url(#gold-gradient);
+  }
+
+  // ===== описание и характеристики
+  &__subtitle {
+    margin-bottom: 14px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  &__about {
+    max-width: 860px;
+    padding: 0 10px;
+
+    p + p {
+      margin-top: 18px;
+    }
+  }
+
+  &__specs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  &__share {
+    align-self: flex-end;
+  }
+
+  // ===== мобильная
+  @include media("md") {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: -40px;
+
+    // карточка без подложки
+    &__card {
+      padding: 0;
+      background: none;
+    }
+
+    // иконки «Поделиться» и «Избранное» — над галереей, справа
+    &__tools {
+      position: absolute;
+      top: 0;
+      right: var(--gutter);
+      display: flex;
+      gap: 16px;
+    }
+
+    &__gallery {
+      margin-top: 52px;
+    }
+
+    &__card {
+      position: static;
+    }
+
+    &__tool {
+      display: flex;
+    }
+
+    &__fav,
+    &__share {
+      display: none;
+    }
+
+    &__actions {
+      grid-template-columns: 1fr;
+    }
+
+    // «Записаться на просмотр» закреплена внизу экрана
+    &__visit {
+      position: fixed;
+      z-index: 90;
+      left: var(--gutter);
+      right: var(--gutter);
+      bottom: 12px;
+      min-height: 48px !important;
+      box-shadow: 0 6px 20px rgba($black, 0.25);
+    }
+
+    &__about {
+      order: 2;
+      padding: 0;
+    }
+
+    &__specs {
+      order: 1;
+    }
+
+    // «Поделиться» и «Избранное» — квадраты с рамкой
+    &__tool {
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid $black;
+    }
+  }
+}
+
+// Характеристики с точечной линией между названием и значением
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 18px;
+
+    dt {
+      display: flex;
+      flex: 1;
+      align-items: baseline;
+      gap: 6px;
+      font-weight: 700;
+
+      &::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px dashed rgba($black, 0.35);
+      }
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+}
+
+// карточка объекта перекрывается закреплённой кнопкой — добавляем место снизу
+@include media("md") {
+  .page--product {
+    padding-bottom: 72px;
+  }
+}
+
+.product-location {
+  display: none;
+
+  @include media("md") {
+    display: flex;
+  }
+}
+
+// видео и карта на мобильных — во всю ширину экрана
+@include media("md") {
+  .page--product .video,
+  .product-location .map {
+    width: calc(100% + var(--gutter) * 2);
+    margin: 0 calc(var(--gutter) * -1);
+  }
+
+  .page--product .video {
+    height: 300px;
+  }
+
+  .product-location .map {
+    height: 340px;
+  }
+}

@@ -1,0 +1,112 @@
+@use "@/styles/abstracts" as *;
+
+// Таблица услуг с галочками. Группы — чёрные строки.
+// Вариант --compare: две колонки сравнения (эксклюзивный / типовой договор)
+.check-table {
+  max-width: 944px;
+  margin: 0 auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 11px 20px;
+    font-weight: 400;
+    text-align: left;
+    @include t3;
+    letter-spacing: -0.05em;
+  }
+
+  &__group th {
+    padding: 9px 20px;
+    background-color: $black;
+    color: $white;
+    text-align: center;
+  }
+
+  thead th {
+    padding: 12px 20px;
+    background-color: $black;
+    color: $white;
+    text-align: center;
+    line-height: 1.2;
+
+    & + th {
+      width: 175px;
+      background-color: #4d4d4d;
+      border-left: 1px solid #6b6b6b;
+    }
+  }
+
+  tbody tr:not(.check-table__group):nth-child(even) {
+    background-color: #f1f1f1;
+  }
+
+  &__mark {
+    width: 66px;
+    border-left: 1px solid #d9d9d9;
+    color: #c89a33;
+    text-align: center !important;
+
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &--no {
+      color: #c89a33;
+    }
+  }
+
+  &--compare &__mark {
+    width: 175px;
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  @include media("md") {
+    th,
+    td {
+      padding: 10px 12px;
+      font-size: 15px;
+    }
+
+    thead th + th,
+    &--compare &__mark {
+      width: 92px;
+      font-size: 13px;
+    }
+
+    &__mark {
+      width: 48px;
+    }
+
+    &__actions {
+      grid-template-columns: 1fr;
+
+      // на мобильных «Поделиться» убираем
+      .js-share {
+        display: none;
+      }
+    }
+  }
+}
+
+// Чёрная кнопка с рамкой (на белом фоне)
+.btn--line {
+  border-color: $black;
+  color: $black;
+
+  @include hover {
+    background-color: $black;
+    color: $white;
+  }
+}

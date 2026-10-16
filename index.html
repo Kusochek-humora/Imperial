@@ -1,16 +1,11 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Imperial Properties — коммерческая недвижимость в Алматы</title>
-    <meta name="description" content="Продажа, аренда и инвестиционная коммерческая недвижимость. Полное сопровождение сделки от поиска объекта до подписания документов." />
+    <include src="src/layout/head.html" title="Коммерческая недвижимость в Алматы"
+      description="Продажа, аренда и инвестиционная коммерческая недвижимость. Полное сопровождение сделки от поиска объекта до подписания документов."></include>
   </head>
   <body>
-    <a class="skip-link" href="#main">Перейти к содержимому</a>
-
-    <include src="src/sections/header/header.html"></include>
+    <include src="src/layout/top.html"></include>
 
     <main class="page page--home" id="main" tabindex="-1">
       <include src="src/sections/hero/hero.html"></include>
@@ -28,8 +23,6 @@
       <include src="src/sections/consult/consult.html"></include>
     </main>
 
-    <include src="src/sections/footer/footer.html"></include>
-
-    <script type="module" src="/src/main.js"></script>
+    <include src="src/layout/bottom.html"></include>
   </body>
 </html>

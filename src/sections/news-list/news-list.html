@@ -1,0 +1,26 @@
+<!-- Список новостей: фильтр по периоду, крупные карточки, сетка, «Загрузить ещё» -->
+<section class="news-list container">
+  <div class="news-list__bar">
+    <include src="src/components/select-menu/select-menu.html" name="period" kind="news" label="от 12.02.26 - до 17.02.26" mod="select-menu--lg" attrs="data-keep-label"></include>
+  </div>
+
+  <div class="news-wide">
+    <include src="src/components/news-card/news-card.html" mod="news-card--wide"
+      img="/src/assets/img/home/news-2.webp" title="Как меняется рынок коммерческой недвижимости в Казахстане"
+      text="Обзор ключевых тенденций рынка, изменения спроса, наиболее востребованных форматов коммерческой недвижимости и перспектив для собственников и инвесторов."
+      date="25.01.2026" datetime="2026-01-25" href="./article.html"></include>
+    <include src="src/components/news-card/news-card.html" mod="news-card--wide"
+      img="/src/assets/img/home/news-4.webp" title="Как меняется рынок коммерческой недвижимости в Казахстане"
+      text="Обзор ключевых тенденций рынка, изменения спроса, наиболее востребованных форматов коммерческой недвижимости и перспектив для собственников и инвесторов."
+      date="25.01.2026" datetime="2026-01-25" href="./article.html"></include>
+  </div>
+
+  <div class="cards-grid js-news-grid">
+    <include src="src/sections/news-list/news-items.html"></include>
+    <include src="src/sections/news-list/news-items.html"></include>
+  </div>
+
+  <div class="section-more">
+    <button class="btn btn--black btn--wide js-news-more" type="button">Загрузить ещё</button>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Эксклюзивные предложения"></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <include src="src/sections/catalog/catalog-hero.html" title="Эксклюзивные предложения" crumb="Эксклюзивы"
+        text="Объекты, представленные Imperial Properties на специальных условиях и доступные ограниченному кругу покупателей и арендаторов."></include>
+      <include src="src/sections/catalog/catalog.html" count="24 предложения"></include>
+
+      <section class="section">
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Почему через Imperial Properties" tag="p"></include>
+          <h2 class="section-head__title">Больше возможностей. Меньше открытого рынка.</h2>
+          <p class="section-head__text">Мы формируем отдельную подборку объектов, представленных на эксклюзивных условиях. Это коммерческая недвижимость с высоким потенциалом, интересными инвестиционными характеристиками или индивидуальными условиями сделки.</p>
+        </div>
+        <ul class="tiles container">
+          <li class="tile"><h3 class="tile__title">Закрытый доступ к объектам</h3><p class="tile__text">Получайте доступ к предложениям, которые не представлены в открытом рынке.</p></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Индивидуальные условия</h3><p class="tile__text">Формируем условия сделки с учётом особенностей объекта и задач клиента.</p></li>
+          <li class="tile"><h3 class="tile__title">Сопровождение сделки</h3><p class="tile__text">Берём на себя организационные и переговорные вопросы от первого контакта до завершения сделки.</p></li>
+          <li class="tile tile--dark"><h3 class="tile__title">Прямое взаимодействие с собственниками</h3><p class="tile__text">Обеспечиваем прямую коммуникацию с владельцами и их представителями.</p></li>
+          <li class="tile"><h3 class="tile__title">Профессиональная оценка</h3><p class="tile__text">Анализируем характеристики, стоимость и потенциал объекта перед предложением клиенту.</p></li>
+          <li class="tile tile--photo"><img src="/src/assets/img/office.webp" alt="" width="467" height="187" loading="lazy" /></li>
+        </ul>
+      </section>
+      <include src="src/sections/catalog/seo-text.html"></include>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+@use "@/styles/abstracts" as *;
+
+.toast {
+  position: fixed;
+  z-index: 400;
+  top: $header-height + 36px;
+  right: 52px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px;
+  border: 1px solid #c89a33;
+  background-color: $white;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  &__close {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    padding-left: 14px;
+    border-left: 1px solid #d9d9d9;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: calc(50% + 7px);
+      width: 22px;
+      height: 1.5px;
+      background-color: #c89a33;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include media("lg") {
+    top: $header-height-mobile + 16px;
+    right: var(--gutter);
+  }
+}

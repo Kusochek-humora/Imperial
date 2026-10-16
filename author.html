@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Автор: Imperial Properties"></include>
+  </head>
+  <body data-nav="news.html">
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-top">
+        <nav class="breadcrumbs container" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./news.html">Новости</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="./article.html">Как меняется рынок коммерческой недвижимости в Казахстане</a></li>
+          <li class="breadcrumbs__item"><span aria-current="page">Автор статьи: Imperial Properties</span></li>
+        </ol>
+      </nav>
+        <div class="section-head">
+          <include src="src/components/section-title/section-title.html" text="Автор" tag="p"></include>
+          <h1 class="section-head__title">Imperial Properties</h1>
+        </div>
+        <div class="prose container">
+          <h2>Автор статей на сайте Imperial Properties</h2>
+          <p>Профессиональная компания в сфере недвижимости Алматы, специализирующаяся на подборе, покупке и аренде объектов. В своих материалах команда делится практическими знаниями о рынке недвижимости, актуальных предложениях, районах города и ключевых аспектах выбора объекта.</p>
+          <p>Статьи основаны на опыте работы с недвижимостью и ориентированы на покупателей, арендаторов и инвесторов. Мы стремимся предоставлять понятную и актуальную информацию, которая помогает оценивать варианты, ориентироваться на рынке и принимать взвешенные решения при работе с недвижимостью.</p>
+          <img src="/src/assets/img/home/about-2.webp" alt="" width="944" height="250" loading="lazy" />
+          <div class="prose__footer prose__lead">
+            <a href="./news.html">На страницу Новостей</a>
+            <button class="btn btn--black js-share" type="button"><icon name="share"></icon>Поделиться</button>
+          </div>
+        </div>
+      </div>
+      <section class="section">
+        <include src="src/components/section-title/section-title.html" text="Читайте другие статьи автора"></include>
+        <div class="cards-grid cards-grid--mobile-3 container">
+          <include src="src/sections/news-list/news-items.html"></include>
+        </div>
+      </section>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+@use "@/styles/abstracts" as *;
+
+// Мозаика преимуществ: светлые, чёрные и фото-плитки.
+// <ul class="tiles tiles--4"> <li class="tile tile--dark"> … </li> <li class="tile tile--photo tile--wide"> <img> </li>
+.tiles {
+  --cols: 3;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 10px;
+
+  &--4 {
+    --cols: 4;
+  }
+
+  &--6 {
+    --cols: 6; // плитки по 2 колонки, широкие по 3
+  }
+
+  @include media("lg") {
+    --cols: 2;
+
+    &--6 {
+      --cols: 2;
+    }
+  }
+
+  @include media("sm") {
+    --cols: 1;
+
+    &--6 {
+      --cols: 1;
+    }
+  }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 187px;
+  padding: 24px 20px 20px;
+  background-color: $light;
+
+  .tiles--4 & {
+    min-height: 230px;
+  }
+
+  .tiles--tall & {
+    min-height: 320px;
+  }
+
+  .tiles--6 & {
+    grid-column: span 2;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  &__text {
+    max-width: 480px;
+  }
+
+  &--dark {
+    background-color: $black;
+    color: $white;
+  }
+
+  // фото вместо текста
+  &--photo {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    background-color: $gray;
+
+    img {
+      @include cover;
+      object-fit: cover;
+    }
+  }
+
+  // фото + текст поверх
+  &--overlay {
+    position: relative;
+    overflow: hidden;
+    color: $white;
+    background-color: $black;
+
+    img {
+      @include cover;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+
+    > :not(img) {
+      position: relative;
+    }
+  }
+
+  &--wide {
+    grid-column: span 2;
+
+    .tiles--6 & {
+      grid-column: span 3;
+    }
+  }
+
+  @include media("lg") {
+    &--wide,
+    .tiles--6 &,
+    .tiles--6 &--wide {
+      grid-column: auto;
+    }
+  }
+
+  @include media("sm") {
+    min-height: 0;
+    gap: 24px;
+
+    .tiles--4 &,
+    .tiles--tall & {
+      min-height: 0;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &--photo {
+      min-height: 160px;
+    }
+  }
+}
+
+// на мобильных: фото-плитки фиксированной высоты, порядок — style="--m-order: N"
+@include media("sm") {
+  .tiles .tile--photo {
+    min-height: 200px;
+  }
+
+  .tiles > .tile {
+    order: var(--m-order, 0);
+  }
+}

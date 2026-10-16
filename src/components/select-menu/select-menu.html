@@ -1,0 +1,10 @@
+<!-- Выпадающий список с радиокнопками (сортировка, период). Параметры: name, label, mod, kind (catalog | news) -->
+<div class="select-menu js-select {{mod}}" {{attrs}}>
+  <button class="select-menu__toggle js-select-toggle" type="button" aria-expanded="false">
+    <span class="js-select-value">{{label|Сначала новые}}</span>
+    <icon name="chevron" class="select-menu__chevron"></icon>
+  </button>
+  <div class="select-menu__list" role="radiogroup" aria-label="Сортировка">
+    <include src="src/components/select-menu/options-{{kind|catalog}}.html" name="{{name|sort}}"></include>
+  </div>
+</div>

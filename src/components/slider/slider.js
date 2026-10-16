@@ -6,7 +6,29 @@ export function initSliders(root = document) {
     const track = slider.querySelector('.js-slider-track');
     const prev = slider.querySelector('.js-slider-prev');
     const next = slider.querySelector('.js-slider-next');
-    if (!track || !prev || !next) return;
+    const dots = slider.querySelector('.js-slider-dots');
+    if (!track) return;
+
+    // точки: по одной на слайд, активная — текущий слайд
+    if (dots) {
+      [...track.children].forEach((slide, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'slider__dot';
+        dot.setAttribute('aria-label', `Слайд ${i + 1}`);
+        dot.addEventListener('click', () => track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' }));
+        dots.append(dot);
+      });
+
+      const updateDots = () => {
+        const index = Math.round(track.scrollLeft / track.clientWidth);
+        [...dots.children].forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+      };
+      track.addEventListener('scroll', updateDots, { passive: true });
+      updateDots();
+    }
+
+    if (!prev || !next) return;
 
     const step = () => {
       const slide = track.firstElementChild;

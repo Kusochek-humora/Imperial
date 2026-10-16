@@ -1,0 +1,41 @@
+@use "@/styles/abstracts" as *;
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-family: $font-accent;
+  font-size: 16px;
+  letter-spacing: normal;
+
+  @include media("md") {
+    justify-content: center;
+  }
+
+  &__link,
+  &__gap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 4px;
+  }
+
+  &__link {
+    @include transition-simple;
+
+    &.is-active {
+      background-color: $black;
+      color: $white;
+    }
+
+    @include hover {
+      &:not(.is-active) {
+        color: #b87618;
+      }
+    }
+  }
+}

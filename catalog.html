@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <include src="src/layout/head.html" title="Каталог объектов"
+      description="Каталог коммерческой недвижимости в Алматы: офисы, торговые помещения, помещения свободного назначения — продажа и аренда."></include>
+  </head>
+  <body>
+    <include src="src/layout/top.html"></include>
+
+    <main class="page" id="main" tabindex="-1">
+      <div class="page-group">
+        <include src="src/sections/catalog/catalog-hero.html" title="Каталог объектов" crumb="Каталог"></include>
+        <include src="src/sections/catalog/catalog-links.html"></include>
+      </div>
+      <include src="src/sections/catalog/catalog.html"></include>
+      <include src="src/sections/catalog/seo-text.html"></include>
+      <include src="src/sections/consult/consult.html"></include>
+    </main>
+
+    <include src="src/layout/bottom.html"></include>
+  </body>
+</html>
