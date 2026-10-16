@@ -1,0 +1,24 @@
+<article class="product-card">
+  <div class="product-card__media">
+    <img class="product-card__img" src="{{img}}" alt="{{title}}" width="348" height="268" loading="lazy" />
+    <span class="product-card__badge">{{badge}}</span>
+    <button class="product-card__fav js-fav {{fav}}" type="button" aria-label="В избранное" aria-pressed="{{pressed|false}}">
+      <icon name="star-small"></icon>
+    </button>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__info">
+      <h3 class="product-card__title"><a class="product-card__link" href="{{href|#}}">{{title}}</a></h3>
+      <ul class="product-card__specs">
+        <li><b>Адрес:</b> {{address}}</li>
+        <li><b>Район:</b> {{district}}</li>
+        <li><b>Помещение:</b> {{type}}</li>
+        <li><b>Номер объекта:</b> {{number}}</li>
+      </ul>
+    </div>
+    <div class="product-card__bottom">
+      <p class="product-card__area">Общая площадь: <b>{{area}}</b></p>
+      <p class="product-card__price">{{price}}</p>
+    </div>
+  </div>
+</article>

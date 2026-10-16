@@ -1,0 +1,72 @@
+@use "@/styles/abstracts" as *;
+
+// Карточка контактов (блок консультации, страница «Контакты»).
+// В макете этот блок набран без трекинга
+.contacts-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: $white;
+  color: $black;
+  letter-spacing: normal;
+
+  @include media("sm") {
+    padding: 20px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__value {
+    font-style: normal;
+  }
+
+  &__link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__social {
+    display: block;
+    width: 24px;
+    height: 24px;
+    @include transition-simple;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include hover {
+      opacity: 0.75;
+    }
+
+    &--threads {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      background: $gold-gradient;
+
+      img {
+        width: 13px;
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@use "@/styles/abstracts" as *;
+
+// «Собственникам недвижимости»: фото с затемнением, карточки-стекло и короткая форма
+.owners {
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 24px 0 10px;
+    overflow: hidden;
+    color: $white;
+    background-color: $black;
+
+    // затемнение фото
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background-color: rgba($black, 0.7);
+    }
+
+    @include media("md") {
+      gap: 32px;
+    }
+  }
+
+  &__bg {
+    @include cover;
+    object-fit: cover;
+  }
+
+  &__head,
+  &__row {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title,
+  &__text {
+    max-width: 512px;
+  }
+
+  &__text {
+    opacity: 0.8;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0 10px;
+
+    @include media("lg") {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    flex: 0 0 695px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    @include media("xl") {
+      flex-basis: 55%;
+    }
+
+    @include media("lg") {
+      flex-basis: auto;
+    }
+
+    @include media("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 154px;
+    padding: 16px;
+    background-color: rgba($white, 0.25);
+    backdrop-filter: blur(4px);
+
+    @include media("sm") {
+      justify-content: flex-start;
+      gap: 8px;
+      min-height: 0;
+    }
+  }
+
+  &__card-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  // на мобильных кнопка с белой рамкой
+  &__submit {
+    @include media("sm") {
+      border-color: $white;
+      background: transparent;
+    }
+  }
+}

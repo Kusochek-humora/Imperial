@@ -3,17 +3,31 @@ import path from 'node:path';
 
 // <include src="src/components/header/header.html"></include>
 // Путь относительно корня проекта. Вложенные include поддерживаются.
-const INCLUDE_RE = /<include\s+src=["']([^"']+)["']\s*(?:\/>|>\s*<\/include>)/g;
+//
+// Параметры: остальные атрибуты include подставляются в партиал вместо {{name}}.
+// {{name|значение}} — значение по умолчанию, если атрибут не передан.
+// <include src="src/components/product-card/product-card.html" title="Офис" price="520 000 000 ₸"></include>
+const INCLUDE_RE = /<include\s+([^>]*?)\s*(?:\/>|>\s*<\/include>)/g;
+const VAR_RE = /\{\{\s*([\w-]+)\s*(?:\|([^}]*))?\}\}/g;
 
 // <icon name="burger-menu" class="burger-menu__icon"></icon>
 // Вставляет inline-svg из src/assets/icons/<name>.svg.
 // class добавляется к "icon icon--<name>", остальные атрибуты переносятся на <svg>.
 const ICON_RE = /<icon\s+([^>]*?)\s*(?:\/>|>\s*<\/icon>)/g;
-const ATTR_RE = /([\w:-]+)=["']([^"']*)["']/g;
+const ATTR_RE = /([\w:-]+)=(?:"([^"]*)"|'([^']*)')/g;
 const ICONS_DIR = 'src/assets/icons';
 
+const parseAttrs = (raw) =>
+  Object.fromEntries([...raw.matchAll(ATTR_RE)].map(([, k, v1, v2]) => [k, v1 ?? v2]));
+
 function render(html, root, stack = []) {
-  return html.replace(INCLUDE_RE, (_, src) => {
+  return html.replace(INCLUDE_RE, (_, rawAttrs) => {
+    const { src, ...props } = parseAttrs(rawAttrs);
+
+    if (!src) {
+      throw new Error(`[html-include] <include> without src: <include ${rawAttrs}>`);
+    }
+
     const file = path.resolve(root, src);
 
     if (stack.includes(file)) {
@@ -23,14 +37,17 @@ function render(html, root, stack = []) {
       throw new Error(`[html-include] file not found: ${src}`);
     }
 
-    return render(fs.readFileSync(file, 'utf-8'), root, [...stack, file]);
+    const partial = fs
+      .readFileSync(file, 'utf-8')
+      .replace(VAR_RE, (__, name, fallback = '') => props[name] ?? fallback);
+
+    return render(partial, root, [...stack, file]);
   });
 }
 
 function renderIcons(html, root) {
   return html.replace(ICON_RE, (_, rawAttrs) => {
-    const attrs = Object.fromEntries([...rawAttrs.matchAll(ATTR_RE)].map(([, k, v]) => [k, v]));
-    const { name, class: className = '', ...rest } = attrs;
+    const { name, class: className = '', ...rest } = parseAttrs(rawAttrs);
 
     if (!name) {
       throw new Error(`[html-include] <icon> without name: <icon ${rawAttrs}>`);

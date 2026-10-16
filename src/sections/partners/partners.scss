@@ -1,0 +1,58 @@
+@use "@/styles/abstracts" as *;
+
+$logo-gap: 40px;
+
+.partners {
+  &__marquee {
+    display: flex;
+    overflow: hidden;
+
+    @media (hover: hover) {
+      &:hover .partners__list {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-shrink: 0;
+    gap: $logo-gap;
+    padding-right: $logo-gap;
+    animation: partners-marquee 30s linear infinite;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 283px;
+    height: 112px;
+    padding: 10px;
+    background-color: $light;
+
+    img {
+      max-width: 200px;
+      max-height: 56px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @include media("md") {
+      width: 200px;
+      height: 90px;
+
+      img {
+        max-width: 150px;
+        max-height: 44px;
+      }
+    }
+  }
+}
+
+@keyframes partners-marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}

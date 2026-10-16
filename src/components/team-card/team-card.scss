@@ -1,0 +1,81 @@
+@use "@/styles/abstracts" as *;
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+
+  &__photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 351px;
+    background-color: $gray;
+
+    @include media("md") {
+      height: 280px;
+    }
+  }
+
+  &__placeholder {
+    width: 155px;
+    height: 155px;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 182px;
+    padding: 16px;
+    background-color: $light;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__name {
+    font-weight: 400;
+    @include t2;
+
+    @include media("sm") {
+      font-size: 18px;
+    }
+  }
+
+  &__langs {
+    display: flex;
+    flex-shrink: 0;
+    gap: 4px;
+
+    .icon {
+      width: 24px;
+      height: 18px;
+    }
+  }
+
+  &__role {
+    opacity: 0.6;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .btn {
+      letter-spacing: -0.05em;
+    }
+  }
+}

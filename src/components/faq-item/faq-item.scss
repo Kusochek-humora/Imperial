@@ -1,0 +1,78 @@
+@use "@/styles/abstracts" as *;
+
+.faq-item {
+  background-color: $light;
+
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 10px 15px 20px;
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+    @include t2;
+
+    &:focus-visible {
+      outline: 1px solid $gold;
+      outline-offset: -1px;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    @include media("md") {
+      font-size: 18px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: $gold-gradient;
+    color: $white;
+
+    .icon {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__answer {
+    padding: 0 30px 15px 37px;
+    opacity: 0.8;
+
+    @include media("md") {
+      padding: 0 20px 15px;
+    }
+  }
+
+  // во время анимации текст обрезается по высоте
+  &.is-animating .faq-item__answer {
+    overflow: hidden;
+  }
+
+  // открыт: плюс поворачивается в крестик (при закрытии — обратно сразу, не дожидаясь конца анимации)
+  &[open]:not(.is-closing) .faq-item__icon .icon {
+    transform: rotate(45deg);
+  }
+
+  @include hover {
+    .faq-item__icon {
+      filter: brightness(1.08);
+    }
+  }
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 944px;
+  margin: 0 auto;
+}

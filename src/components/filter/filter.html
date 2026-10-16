@@ -1,0 +1,111 @@
+<form class="filter js-filter {{mod}}" action="./catalog.html" method="get" {{attrs}}>
+  <div class="filter__top">
+    <fieldset class="filter__tabs">
+      <legend class="visually-hidden">Тип сделки</legend>
+      <label class="filter__tab">
+        <input class="visually-hidden" type="radio" name="deal" value="buy" checked />
+        <span>Купить</span>
+      </label>
+      <label class="filter__tab">
+        <input class="visually-hidden" type="radio" name="deal" value="rent" />
+        <span>Снять</span>
+      </label>
+    </fieldset>
+
+    <div class="filter__actions">
+      <!-- Список / Карта: видно только у .filter--catalog -->
+      <div class="filter__view" role="group" aria-label="Вид">
+        <button class="filter__view-btn js-view" type="button" data-view="list" aria-pressed="{{list|true}}">Список</button>
+        <button class="filter__view-btn js-view" type="button" data-view="map" aria-pressed="{{map|false}}">Карта</button>
+      </div>
+      <button class="filter__map js-view-toggle" type="button" aria-label="Показать на карте" aria-pressed="{{map|false}}">
+        <icon name="map"></icon>
+      </button>
+
+      <button class="btn btn--white filter__reset filter__reset--desktop" type="reset">Сбросить фильтр</button>
+
+      <button class="filter__open js-filter-open" type="button" aria-label="Открыть фильтр" aria-expanded="false" aria-controls="{{id|filter}}-panel">
+        <icon name="filter"></icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- на мобильных — полноэкранный попап -->
+  <div class="filter__panel" id="{{id|filter}}-panel" role="group" aria-label="Фильтр">
+    <div class="filter__panel-head">
+      <p class="filter__panel-title">Фильтр</p>
+      <button class="icon-btn filter__close js-filter-close" type="button" aria-label="Закрыть фильтр">
+        <icon name="close"></icon>
+      </button>
+    </div>
+
+    <div class="filter__fields">
+      <label class="filter__field filter__field--type">
+        <span class="filter__label">Тип объекта</span>
+        <span class="select filter__select">
+          <select class="filter__control" name="type">
+            <option value="">Все</option>
+            <option value="office">Офис</option>
+            <option value="retail">Торговое помещение</option>
+            <option value="free">Помещение свободного назначения</option>
+            <option value="warehouse">Склад</option>
+            <option value="land">Земельный участок</option>
+          </select>
+          <icon name="chevron" class="select__icon"></icon>
+        </span>
+      </label>
+
+      <label class="filter__field filter__field--district">
+        <span class="filter__label">Район</span>
+        <span class="select filter__select">
+          <select class="filter__control" name="district">
+            <option value="">Все</option>
+            <option value="almaly">Алмалинский</option>
+            <option value="auezov">Ауэзовский</option>
+            <option value="bostandyk">Бостандыкский</option>
+            <option value="zhetysu">Жетысуский</option>
+            <option value="medeu">Медеуский</option>
+            <option value="nauryzbay">Наурызбайский</option>
+            <option value="turksib">Турксибский</option>
+            <option value="alatau">Алатауский</option>
+          </select>
+          <icon name="chevron" class="select__icon"></icon>
+        </span>
+      </label>
+
+      <div class="filter__field filter__field--price" role="group" aria-labelledby="{{id|filter}}-price">
+        <span class="filter__label" id="{{id|filter}}-price">Стоимость (₸)</span>
+        <div class="filter__range">
+          <label class="filter__chip">
+            <span class="filter__prefix">от</span>
+            <input class="filter__control js-number" type="text" inputmode="numeric" name="price_from" placeholder="23 783 838" aria-label="Стоимость от" />
+          </label>
+          <span class="filter__dash" aria-hidden="true"></span>
+          <label class="filter__chip">
+            <span class="filter__prefix">до</span>
+            <input class="filter__control js-number" type="text" inputmode="numeric" name="price_to" placeholder="--- --- ---" aria-label="Стоимость до" />
+          </label>
+        </div>
+      </div>
+
+      <div class="filter__field filter__field--area" role="group" aria-labelledby="{{id|filter}}-area">
+        <span class="filter__label" id="{{id|filter}}-area">Площадь (м²)</span>
+        <div class="filter__range">
+          <label class="filter__chip">
+            <span class="filter__prefix">от</span>
+            <input class="filter__control js-number" type="text" inputmode="numeric" name="area_from" placeholder="---" aria-label="Площадь от" />
+          </label>
+          <span class="filter__dash" aria-hidden="true"></span>
+          <label class="filter__chip">
+            <span class="filter__prefix">до</span>
+            <input class="filter__control js-number" type="text" inputmode="numeric" name="area_to" placeholder="---" aria-label="Площадь до" />
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn--gold filter__submit" type="submit">Найти</button>
+    </div>
+
+    <button class="btn filter__reset filter__reset--mobile" type="reset">Сбросить фильтр</button>
+  </div>
+</form>

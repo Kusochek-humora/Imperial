@@ -1,0 +1,82 @@
+@use "@/styles/abstracts" as *;
+
+// Простой слайдер на нативном скролле со snap: 4 → 3 → 2 карточки, на мобильных
+// видна следующая карточка краешком. Стрелки прокручивают на одну карточку.
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__track {
+    --per-view: 4;
+
+    display: grid;
+    grid-auto-columns: calc((100% - 10px * (var(--per-view) - 1)) / var(--per-view));
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include media("lg") {
+      --per-view: 3;
+    }
+
+    @include media("md") {
+      --per-view: 2;
+    }
+
+    @include media("sm") {
+      --per-view: 1.42;
+    }
+  }
+
+  &__slide {
+    scroll-snap-align: start;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    // на мобильных листают свайпом
+    @include media("sm") {
+      display: none;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $black;
+    background-color: $black;
+    color: $white;
+    @include transition-simple;
+
+    &--prev .icon {
+      transform: scaleX(-1);
+    }
+
+    // крайнее положение: светлая кнопка с рамкой, как «назад» в макете
+    &:disabled {
+      background-color: transparent;
+      color: $black;
+      cursor: default;
+    }
+
+    @include hover {
+      &:not(:disabled) {
+        background-color: #262626;
+      }
+    }
+  }
+}

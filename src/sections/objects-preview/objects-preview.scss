@@ -1,0 +1,50 @@
+@use "@/styles/abstracts" as *;
+
+.objects-preview {
+  &__toolbar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  // панель есть только у каталога на мобильных; отступ до карточек 20px вместо 32px
+  &--catalog &__toolbar {
+    @include media("sm") {
+      display: flex;
+      margin-bottom: -12px;
+    }
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid $black;
+    @include transition-simple;
+
+    @include hover {
+      background-color: $light;
+    }
+  }
+}
+
+// Переключатель «Купить / Снять» на светлом фоне
+.deal-tabs {
+  display: flex;
+  padding: 4px;
+  background-color: $light;
+
+  &__btn {
+    height: 30px;
+    padding: 0 20px;
+    @include transition-simple;
+
+    &[aria-pressed="true"] {
+      background-color: $black;
+      color: $white;
+    }
+  }
+}

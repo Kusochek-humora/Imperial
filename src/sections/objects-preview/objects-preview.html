@@ -1,0 +1,24 @@
+<!-- Превью объектов на главной. Параметры: title, text (необязательно), button, href, mod -->
+<section class="section objects-preview {{mod}}">
+  <div class="section-head">
+    <include src="src/components/section-title/section-title.html" text="{{title}}"></include>
+    <p class="section-head__text">{{text}}</p>
+  </div>
+  <!-- мобильная панель над каталогом (видна только у --catalog): тип сделки + открыть фильтр -->
+  <div class="objects-preview__toolbar container">
+    <div class="deal-tabs" role="group" aria-label="Тип сделки">
+      <button class="deal-tabs__btn js-deal" type="button" data-deal="buy" aria-pressed="true">Купить</button>
+      <button class="deal-tabs__btn js-deal" type="button" data-deal="rent" aria-pressed="false">Снять</button>
+    </div>
+    <button class="objects-preview__filter js-filter-trigger" type="button" aria-label="Открыть фильтр">
+      <icon name="filter"></icon>
+    </button>
+  </div>
+
+  <div class="cards-grid cards-grid--mobile-3 container">
+    <include src="src/sections/objects-preview/objects-list.html"></include>
+  </div>
+  <div class="section-more container">
+    <a class="btn btn--black btn--wide" href="{{href}}">{{button}}</a>
+  </div>
+</section>

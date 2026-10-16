@@ -32,8 +32,61 @@
   justify-content: center;
 }
 
+// Золотой градиентный текст. Градиент тянется на всю ширину элемента,
+// поэтому вешать на inline/inline-block, а не на блок во всю строку
+@mixin gold-text {
+  background: $gold-text-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Текстовые стили из Figma (letter-spacing у всех -6%, задан на body)
+@mixin t1 {
+  font-size: 16px;
+  line-height: normal;
+}
+
+@mixin t2 {
+  font-size: 20px;
+  line-height: normal;
+}
+
+@mixin t3 {
+  font-size: 18px;
+  line-height: normal;
+}
+
+@mixin h2 {
+  font-size: 32px;
+  line-height: 1;
+
+  @include media("md") {
+    font-size: 26px;
+  }
+}
+
+@mixin h1 {
+  font-size: 40px;
+  line-height: 1.2;
+
+  @include media("md") {
+    font-size: 28px;
+  }
+}
+
+// Абсолютный слой на весь родитель (фоны, затемнения)
+@mixin cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// не `all`: иначе анимируется и visibility, и элементы внутри скрытых попапов появляются с задержкой
 @mixin transition-simple {
-  transition: 0.3s all;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color, outline-color, opacity, transform, filter;
 }
 
 // hover только на устройствах с мышью (на тач-экранах не "залипает") + фокус с клавиатуры

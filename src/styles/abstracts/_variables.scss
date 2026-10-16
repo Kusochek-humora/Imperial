@@ -9,14 +9,25 @@ $breakpoints: (
 // colors
 $white: #fff;
 $black: #000;
-$primary: #03467c;
-$primary-hover: #02345c;
+$light: #f7f7f7; // фон карточек, плашки заголовков
+$gray: #f1f1f1; // заглушка фото
+$border-dark: #404040; // разделитель в шапке
+$gold: #e0bb4b;
+
+// золото
+$gold-gradient: linear-gradient(90deg, #e0bb4b 0%, #b87618 100%); // фон кнопок
+$gold-text-gradient: linear-gradient(90deg, #ffe8a1 0%, #ffb854 100%); // курсы валют и т.п.
 
 // fonts
-$font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-main: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+$font-accent: "Manrope", $font-main; // пагинация
+$letter-spacing: -0.06em; // у всех текстовых стилей макета
 
-// layout
-$container-width: 1280px;
-$container-padding: 20px;
+// layout: макет 1440, контент 1420 + поля по 10px; ниже 1440 контейнер тянется по ширине экрана
+$container-width: 1420px;
+$container-padding: 10px; // на мобильных 20px — см. --gutter в _base.scss
+$section-gap: 80px; // расстояние между секциями
 
-$transition: 0.3s all;
+$header-height: 124px;
+$header-height-mobile: 136px;
+

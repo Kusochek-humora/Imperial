@@ -1,0 +1,135 @@
+<!-- общий градиент для иконок: fill / stroke: url(#gold-gradient) -->
+<svg class="visually-hidden" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gold-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e0bb4b" />
+      <stop offset="1" stop-color="#b87618" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="header js-header">
+  <div class="header__top">
+    <ul class="header__rates" aria-label="Курсы валют">
+      <li class="header__rate">$ 127,93</li>
+      <li class="header__rate">€ 469,85</li>
+      <li class="header__rate">₽ 27,27</li>
+    </ul>
+
+    <a class="header__logo" href="./index.html" aria-label="Imperial Properties — на главную">
+      <img src="/src/assets/img/logo-header.webp" alt="Imperial Properties" width="83" height="62" />
+    </a>
+
+    <div class="header__actions">
+      <button class="icon-btn header__icon js-search-toggle" type="button" aria-label="Поиск" aria-expanded="false" aria-controls="search">
+        <icon name="search"></icon>
+      </button>
+      <a class="icon-btn header__icon" href="./favorites.html" aria-label="Избранное">
+        <icon name="star"></icon>
+      </a>
+      <a class="btn btn--outline header__cta" href="#consult">Оставить заявку</a>
+      <a class="btn btn--gold header__cta" href="tel:+77016728810">+7 (701) 672 88 10</a>
+    </div>
+
+    <button class="icon-btn header__burger js-menu-open" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+      <icon name="burger-menu"></icon>
+    </button>
+  </div>
+
+  <nav class="header__nav" aria-label="Основное меню">
+    <ul class="nav">
+      <li class="nav__item"><a class="nav__link" href="./about.html">О компании</a></li>
+      <li class="nav__item nav__item--dropdown js-dropdown">
+        <button class="nav__link nav__toggle js-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-services">
+          Услуги
+          <icon name="chevron-small" class="nav__chevron"></icon>
+        </button>
+        <ul class="nav__dropdown" id="nav-services">
+          <li><a class="nav__dropdown-link" href="./services-sellers.html">Для продавцов</a></li>
+          <li><a class="nav__dropdown-link" href="./services-buyers.html">Для покупателей</a></li>
+          <li><a class="nav__dropdown-link" href="./services-landlords.html">Для арендодателей</a></li>
+          <li><a class="nav__dropdown-link" href="./services-tenants.html">Для арендаторов</a></li>
+          <li><a class="nav__dropdown-link" href="./services-investors.html">Для инвесторов</a></li>
+          <li><a class="nav__dropdown-link" href="./services-developers.html">Для девелоперов</a></li>
+        </ul>
+      </li>
+      <li class="nav__item"><a class="nav__link" href="./catalog.html">Каталог объектов</a></li>
+      <li class="nav__item"><a class="nav__link" href="./exclusives.html">Эксклюзивы</a></li>
+      <li class="nav__item"><a class="nav__link" href="./sell.html">Продать / Сдать</a></li>
+      <li class="nav__item"><a class="nav__link" href="./partners.html">Партнерская программа</a></li>
+      <li class="nav__item"><a class="nav__link" href="./news.html">Новости</a></li>
+      <li class="nav__item"><a class="nav__link" href="./contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <!-- поиск: панель под шапкой -->
+  <div class="search" id="search" hidden>
+    <div class="search__inner">
+      <form class="search__form" action="./catalog.html" role="search">
+        <label class="search__field">
+          <icon name="search" class="search__field-icon"></icon>
+          <span class="visually-hidden">Поиск недвижимости</span>
+          <input class="search__input js-search-input" type="search" name="q" placeholder="Поиск недвижимости" autocomplete="off" />
+        </label>
+        <button class="icon-btn search__close js-search-toggle" type="button" aria-label="Закрыть поиск">
+          <icon name="close"></icon>
+        </button>
+      </form>
+
+      <ul class="search__list search__list--history" aria-label="Недавние запросы">
+        <li><a class="search__link" href="./catalog.html?q=Бизнес+центр"><icon name="clock"></icon>Бизнес центр</a></li>
+        <li><a class="search__link" href="./catalog.html?q=Офисы"><icon name="clock"></icon>Офисы</a></li>
+        <li><a class="search__link" href="./catalog.html?q=Помещение"><icon name="clock"></icon>Помещение</a></li>
+      </ul>
+
+      <ul class="search__list" aria-label="Подходящие объекты">
+        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Офис в бизнес-центре Almaty Plaza</a></li>
+        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Помещение свободного назначения в Park Commercial</a></li>
+        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Торговое помещение в River Park Plaza</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- мобильное меню -->
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu__overlay js-menu-close"></div>
+  <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Меню">
+    <button class="icon-btn mobile-menu__close js-menu-close" type="button" aria-label="Закрыть меню">
+      <icon name="close"></icon>
+    </button>
+
+    <nav aria-label="Мобильное меню">
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="./index.html">Главная</a></li>
+        <li><a class="mobile-menu__link" href="./about.html">О компании</a></li>
+        <li class="js-dropdown">
+          <button class="mobile-menu__link mobile-menu__toggle js-dropdown-toggle" type="button" aria-expanded="false" aria-controls="mobile-services">
+            Услуги
+            <icon name="chevron" class="mobile-menu__chevron"></icon>
+          </button>
+          <ul class="mobile-menu__sub" id="mobile-services">
+            <li><a class="mobile-menu__sublink" href="./services-sellers.html">Для продавцов</a></li>
+            <li><a class="mobile-menu__sublink" href="./services-buyers.html">Для покупателей</a></li>
+            <li><a class="mobile-menu__sublink" href="./services-landlords.html">Для арендодателей</a></li>
+            <li><a class="mobile-menu__sublink" href="./services-tenants.html">Для арендаторов</a></li>
+            <li><a class="mobile-menu__sublink" href="./services-investors.html">Для инвесторов</a></li>
+            <li><a class="mobile-menu__sublink" href="./services-developers.html">Для девелоперов</a></li>
+          </ul>
+        </li>
+        <li><a class="mobile-menu__link" href="./catalog.html">Каталог объектов</a></li>
+        <li><a class="mobile-menu__link" href="./exclusives.html">Эксклюзивы</a></li>
+        <li><a class="mobile-menu__link" href="./sell.html">Продать / Сдать</a></li>
+        <li><a class="mobile-menu__link" href="./partners.html">Партнерская программа</a></li>
+        <li><a class="mobile-menu__link" href="./news.html">Новости</a></li>
+        <li><a class="mobile-menu__link" href="./contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__contacts">
+      <a href="mailto:info@imperial.re">info@imperial.re</a>
+      <address>г.Алматы, БЦ Capital Tower, ул.Абиша Кекилбайулы 34</address>
+      <a class="btn btn--gold btn--block" href="tel:+77016728810">+7 (701) 672 88 10</a>
+    </div>
+  </div>
+</div>

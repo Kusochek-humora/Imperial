@@ -1,0 +1,467 @@
+@use "@/styles/abstracts" as *;
+
+$top-height: 74px;
+$top-height-mobile: 86px;
+$nav-height: 50px;
+
+.header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background-color: $black;
+  color: $white;
+
+  // верхняя строка: курсы — логотип — действия
+  &__top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: $top-height;
+    padding: 0 20px;
+
+    @include media("lg") {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: $top-height-mobile $nav-height;
+      gap: 0 20px;
+      height: auto;
+      // разделитель между строками
+      background: linear-gradient($border-dark, $border-dark) 0 #{$top-height-mobile} / 100% 1px no-repeat;
+    }
+  }
+
+  &__rates {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include media("lg") {
+      grid-area: 2 / 1;
+    }
+  }
+
+  &__rate {
+    @include t1;
+    @include gold-text;
+    white-space: nowrap;
+
+    & + & {
+      position: relative;
+      padding-left: 11px;
+
+      // вертикальный разделитель
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 1px;
+        background-color: rgba($white, 0.6);
+      }
+    }
+
+    @include media("sm") {
+      font-size: 14px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      width: 83px;
+      height: 62px;
+    }
+
+    @include media("lg") {
+      position: static;
+      grid-area: 1 / 1 / 2 / -1;
+      justify-self: center;
+      transform: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include media("lg") {
+      grid-area: 2 / 2;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    & + .header__cta {
+      margin-left: 10px;
+    }
+  }
+
+  &__cta {
+    @include media("lg") {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+    width: 28px;
+    height: 28px;
+
+    @include media("lg") {
+      display: flex;
+      grid-area: 1 / 2;
+      justify-self: end;
+    }
+  }
+
+  &__nav {
+    border-top: 1px solid $border-dark;
+
+    @include media("lg") {
+      display: none;
+    }
+  }
+}
+
+// Основное меню (десктоп)
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1440px;
+  height: $nav-height;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 12.5vw, 180px);
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    @include transition-simple;
+
+    &[aria-current="page"] {
+      color: $gold;
+    }
+
+    @include hover {
+      color: $gold;
+    }
+  }
+
+  &__chevron {
+    transition: transform 0.3s ease;
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 25px);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 180px;
+    padding: 20px;
+    border: 2px solid $gold;
+    background-color: $white;
+    color: $black;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
+
+    // «мостик», чтобы меню не закрывалось при переводе курсора вниз
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      height: 27px;
+    }
+  }
+
+  &__dropdown-link {
+    white-space: nowrap;
+    @include transition-simple;
+
+    &[aria-current="page"] {
+      color: #b87618;
+    }
+
+    @include hover {
+      color: #b87618;
+    }
+  }
+
+  &__item--dropdown.is-open,
+  &__item--dropdown:focus-within {
+    .nav__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .nav__chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (hover: hover) {
+    &__item--dropdown:hover {
+      .nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .nav__chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Поиск: белая панель под шапкой
+.search {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 32px 20px 100px;
+  background-color: $white;
+  color: $black;
+
+  // затемнение страницы под панелью
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba($white, 0.4);
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  @include media("md") {
+    padding: 20px 20px 60px;
+    min-height: calc(100vh - #{$header-height-mobile});
+  }
+
+  &__inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__field {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    padding: 0 20px;
+    background-color: $light;
+  }
+
+  &__field-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+
+    &::placeholder {
+      color: rgba($black, 0.5);
+    }
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 20px;
+    max-width: 670px;
+
+    &--history {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba($black, 0.1);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: rgba($black, 0.8);
+    @include transition-simple;
+
+    .icon {
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    @include hover {
+      color: #b87618;
+    }
+  }
+}
+
+// Мобильное меню: панель справа + затемнение
+.mobile-menu {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba($black, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 66%;
+    max-width: 360px;
+    padding: 76px 20px 40px;
+    overflow-y: auto;
+    background-color: $white;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    @include media("sm") {
+      width: 74%;
+    }
+  }
+
+  &.is-open &__overlay {
+    opacity: 1;
+  }
+
+  &.is-open &__panel {
+    transform: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include t3;
+    @include transition-simple;
+
+    &[aria-current="page"] {
+      color: #c89a33;
+    }
+
+    @include hover {
+      color: #c89a33;
+    }
+  }
+
+  &__chevron {
+    transition: transform 0.3s ease;
+  }
+
+  &__sub {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 0 4px 16px;
+  }
+
+  .is-open > &__toggle &__chevron {
+    transform: rotate(180deg);
+  }
+
+  .is-open > &__sub {
+    display: flex;
+  }
+
+  &__sublink {
+    opacity: 0.8;
+    @include transition-simple;
+
+    &[aria-current="page"] {
+      color: #c89a33;
+      opacity: 1;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: auto;
+
+    address {
+      font-style: normal;
+    }
+  }
+}

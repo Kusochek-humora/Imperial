@@ -1,0 +1,150 @@
+@use "@/styles/abstracts" as *;
+
+.about {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    @include media("md") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__slogan,
+  &__stats {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+    color: $white;
+    background-color: $black;
+  }
+
+  &__img {
+    @include cover;
+    object-fit: cover;
+  }
+
+  &__slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    // затемнение фото
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba($black, 0.4);
+    }
+
+    @include media("md") {
+      min-height: 360px;
+    }
+  }
+
+  &__slogan-text {
+    position: relative;
+    max-width: 406px;
+    text-align: center;
+    @include h2;
+  }
+
+  // фото + стеклянные плитки с цифрами внизу
+  &__stats {
+    display: flex;
+    align-items: flex-end;
+    padding: 13px 13px 15px;
+
+    @include media("md") {
+      min-height: 0;
+      padding-top: 160px;
+    }
+  }
+
+  &__stats-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    // мобильный: плитки по ширине контента, порядок 15+ · 287 542 / 5 000+ · 2 000 000+
+    @include media("sm") {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  // перенос строки между парами плиток (только на мобильных)
+  &__break {
+    display: none;
+
+    @include media("sm") {
+      display: block;
+      flex-basis: 100%;
+      order: 3;
+      height: 0;
+      margin-top: -10px; // компенсирует gap пустой строки
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 149px;
+    padding: 24px;
+    background-color: rgba($white, 0.32);
+    backdrop-filter: blur(11px);
+    @include t2;
+
+    @include media("sm") {
+      flex: 0 0 auto;
+      max-width: 44%; // узкие плитки по контенту, длинная подпись переносится
+      min-height: 114px;
+      padding: 20px 16px;
+      font-size: 16px;
+
+      // широкие плитки занимают остаток строки и не переносятся
+      &:nth-child(2),
+      &:nth-child(5) {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: none;
+      }
+
+      &:nth-child(1) { order: 1; }
+      &:nth-child(5) { order: 2; }
+      &:nth-child(4) { order: 4; }
+      &:nth-child(2) { order: 5; }
+    }
+  }
+
+  // на мобильных кнопка золотая
+  &__more {
+    @include media("sm") {
+      background: $gold-gradient;
+      color: $white;
+    }
+  }
+
+  &__number {
+    @include h2;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums; // цифры одной ширины — текст не дёргается при счёте
+
+    @include media("sm") {
+      font-size: 26px;
+      white-space: nowrap;
+    }
+  }
+}

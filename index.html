@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Vite starter</title>
-    <meta name="description" content="" />
+    <title>Imperial Properties — коммерческая недвижимость в Алматы</title>
+    <meta name="description" content="Продажа, аренда и инвестиционная коммерческая недвижимость. Полное сопровождение сделки от поиска объекта до подписания документов." />
   </head>
   <body>
-    <a class="skip-link" href="#main" data-i18n="skipLink">Перейти к содержимому</a>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
 
     <include src="src/sections/header/header.html"></include>
 
-    <main id="main" tabindex="-1">
+    <main class="page page--home" id="main" tabindex="-1">
       <include src="src/sections/hero/hero.html"></include>
+      <include src="src/sections/objects-preview/objects-preview.html" mod="objects-preview--catalog"
+        title="Каталог недвижимости" button="Смотреть весь каталог" href="./catalog.html"></include>
+      <include src="src/sections/owners/owners.html"></include>
+      <include src="src/sections/about/about.html"></include>
+      <include src="src/sections/team/team.html"></include>
+      <include src="src/sections/objects-preview/objects-preview.html" mod="objects-preview--exclusive"
+        title="Эксклюзивные предложения" text="Объекты, доступные для приобретения или аренды только через Imperial Properties."
+        button="Смотреть все предложения" href="./exclusives.html"></include>
+      <include src="src/sections/news-preview/news-preview.html"></include>
+      <include src="src/sections/faq/faq.html"></include>
+      <include src="src/sections/partners/partners.html"></include>
+      <include src="src/sections/consult/consult.html"></include>
     </main>
+
+    <include src="src/sections/footer/footer.html"></include>
 
     <script type="module" src="/src/main.js"></script>
   </body>

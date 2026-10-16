@@ -1,0 +1,374 @@
+@use "@/styles/abstracts" as *;
+
+// Фильтр объектов: на тёмной подложке поверх фото (hero, шапки каталога).
+// До md поля уходят в полноэкранный попап.
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+  background-color: rgba($black, 0.35);
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  // Купить / Снять
+  &__tabs {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    margin: 0;
+    padding: 6px;
+    border: none;
+    background-color: $white;
+    color: $black;
+  }
+
+  &__tab {
+    cursor: pointer;
+
+    span {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 20px;
+      @include transition-simple;
+    }
+
+    input:checked + span {
+      background-color: $black;
+      color: $white;
+    }
+
+    input:focus-visible + span {
+      outline: 1px solid $gold;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__view,
+  &__map {
+    display: none;
+  }
+
+  &--catalog &__view {
+    display: flex;
+    height: 44px;
+    padding: 6px;
+    background-color: $white;
+  }
+
+  &__view-btn {
+    height: 32px;
+    padding: 0 20px;
+    color: $black;
+    @include transition-simple;
+
+    &[aria-pressed="true"] {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  &__map {
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: $white;
+    color: $black;
+    @include transition-simple;
+
+    &[aria-pressed="true"] {
+      background: $gold-gradient;
+      color: $white;
+    }
+  }
+
+  &__reset--desktop {
+    min-height: 44px;
+  }
+
+  &__open {
+    display: none;
+  }
+
+  &__panel-head,
+  &__reset--mobile {
+    display: none;
+  }
+
+  &__fields {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+
+    @include media("xl") {
+      gap: 16px;
+    }
+
+    @include media("lg") {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    &--type {
+      flex: 0 1 237px;
+    }
+
+    &--district {
+      flex: 0 1 208px;
+    }
+
+    @include media("lg") {
+      &--type,
+      &--district {
+        flex: 1 1 calc(50% - 8px);
+      }
+
+      &--price,
+      &--area {
+        flex: 1 1 calc(50% - 8px);
+      }
+    }
+  }
+
+  &__label {
+    padding: 0;
+    color: $white;
+    @include t3;
+    letter-spacing: -0.05em;
+  }
+
+  &__select {
+    display: block;
+    color: $black;
+  }
+
+  &__control {
+    width: 100%;
+    height: 38px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: $black;
+    outline: none;
+
+    &::placeholder {
+      color: $black;
+      opacity: 1;
+    }
+  }
+
+  select.filter__control {
+    padding: 0 50px 0 20px;
+
+    option {
+      color: $black;
+      background-color: $white;
+    }
+
+    background-color: $white;
+    outline: 1px solid transparent;
+    @include transition-simple;
+
+    &:focus-visible {
+      outline-color: $gold;
+    }
+  }
+
+  &__range {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 146px;
+    height: 38px;
+    padding: 0 16px;
+    background-color: $white;
+    color: $black;
+    outline: 1px solid transparent;
+    @include transition-simple;
+
+    &:focus-within {
+      outline-color: $gold;
+    }
+
+    .filter__control {
+      text-align: right;
+    }
+
+    .filter__field--area & {
+      width: 124px;
+    }
+
+    @include media("lg") {
+      flex: 1;
+      width: auto;
+
+      .filter__field--area & {
+        width: auto;
+      }
+    }
+  }
+
+  &__prefix {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  &__dash {
+    flex-shrink: 0;
+    width: 20px;
+    height: 1px;
+    background-color: $white;
+  }
+
+  &__submit {
+    flex: 1 1 120px;
+    @include t3;
+    letter-spacing: -0.05em;
+  }
+
+  // ===== мобильный вариант: строка «Купить/Снять + кнопка фильтра», поля — в попапе
+  @include media("md") {
+    &__reset--desktop {
+      display: none;
+    }
+
+    &--catalog &__view {
+      display: none;
+    }
+
+    &--catalog &__map {
+      display: flex;
+    }
+
+    &__open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: $white;
+      color: $black;
+    }
+
+    &__panel {
+      position: fixed;
+      z-index: 300;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 20px;
+      overflow-y: auto;
+      background-color: $white;
+      color: $black;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
+    }
+
+    &.is-open &__panel {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    &__panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    &__panel-title {
+      @include t2;
+    }
+
+    &__close {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__fields {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+
+    &__field--type,
+    &__field--district,
+    &__field--price,
+    &__field--area {
+      flex: none;
+    }
+
+    &__label {
+      color: $black;
+    }
+
+    select.filter__control,
+    &__chip {
+      height: 48px;
+      background-color: $light;
+    }
+
+    select.filter__control {
+      height: 48px;
+    }
+
+    &__range {
+      gap: 8px;
+    }
+
+    &__dash {
+      background-color: $black;
+    }
+
+    &__submit {
+      flex: none;
+      min-height: 46px;
+      margin-top: 6px;
+    }
+
+    &__reset--mobile {
+      display: flex;
+      width: 100%;
+      min-height: 44px;
+      margin-top: auto;
+      border-color: $black;
+      color: $black;
+    }
+
+    &__fields {
+      margin-bottom: 40px;
+    }
+  }
+}

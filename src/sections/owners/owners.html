@@ -1,0 +1,36 @@
+<section class="owners container">
+  <div class="owners__box">
+    <img class="owners__bg" src="/src/assets/img/home/owners-bg.webp" alt="" width="1023" height="1023" loading="lazy" />
+    <div class="owners__head section-head">
+      <include src="src/components/section-title/section-title.html" text="Собственникам недвижимости" mod="section-title--glass" tag="p"></include>
+      <h2 class="section-head__title owners__title">Хотите выгодно продать или сдать свою недвижимость?</h2>
+      <p class="section-head__text owners__text">Оценим потенциал объекта, предложим стратегию продажи или сдачи и возьмем на себя сопровождение сделки.</p>
+    </div>
+
+    <div class="owners__row">
+      <ul class="owners__cards">
+        <li class="owners__card">
+          <h3 class="owners__card-title">Рыночная оценка</h3>
+          <p>Определим актуальный потенциал стоимости объекта.</p>
+        </li>
+        <li class="owners__card">
+          <h3 class="owners__card-title">Стратегия реализации</h3>
+          <p>Подберем оптимальный сценарий продажи или сдачи.</p>
+        </li>
+        <li class="owners__card">
+          <h3 class="owners__card-title">Сопровождение</h3>
+          <p>Возьмем на себя коммуникацию и процесс сделки.</p>
+        </li>
+      </ul>
+
+      <form class="owners__form js-request-form" action="#" method="post">
+        <label class="visually-hidden" for="owners-name">Имя</label>
+        <input class="input" id="owners-name" type="text" name="name" placeholder="Имя" autocomplete="name" required />
+        <label class="visually-hidden" for="owners-phone">Телефон</label>
+        <input class="input" id="owners-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+        <input type="hidden" name="interest" value="sell" />
+        <button class="btn btn--gold btn--block owners__submit" type="submit">Получить консультацию</button>
+      </form>
+    </div>
+  </div>
+</section>

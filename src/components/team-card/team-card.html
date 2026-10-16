@@ -1,0 +1,22 @@
+<article class="team-card">
+  <div class="team-card__photo">
+    <icon name="profile" class="team-card__placeholder"></icon>
+  </div>
+  <div class="team-card__body">
+    <div class="team-card__head">
+      <div class="team-card__row">
+        <h3 class="team-card__name">{{name}}</h3>
+        <div class="team-card__langs" aria-label="Языки: русский, казахский, английский">
+          <icon name="flag-ru"></icon>
+          <icon name="flag-kz"></icon>
+          <icon name="flag-us"></icon>
+        </div>
+      </div>
+      <p class="team-card__role">{{role}}</p>
+    </div>
+    <div class="team-card__buttons">
+      <a class="btn btn--black btn--block" href="https://wa.me/{{whatsapp|77016728810}}" target="_blank" rel="noopener">Написать на WhatsApp</a>
+      <a class="btn btn--gold btn--block" href="tel:{{tel|+77016728810}}">{{phone|+7 (701) 672 88 10}}</a>
+    </div>
+  </div>
+</article>

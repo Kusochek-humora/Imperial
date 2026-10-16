@@ -1,0 +1,86 @@
+@use "@/styles/abstracts" as *;
+
+// В макете hero 662px, верхние 38px уходят под шапку — видимая часть 624px
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 624px;
+  padding: 40px var(--gutter) 10px;
+  color: $white;
+  background-color: $black;
+
+  &__bg {
+    @include cover;
+    object-fit: cover;
+  }
+
+  // затемнение фото
+  &__overlay {
+    @include cover;
+    background-color: rgba($black, 0.3);
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  &__title {
+    max-width: 1100px;
+    font-weight: 400;
+    @include h1;
+  }
+
+  &__text {
+    max-width: 700px;
+    @include t2;
+    line-height: 1.2;
+  }
+
+  &__filter {
+    position: relative;
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  // мобильный: только заголовок; поля фильтра — в попапе (открывается лупой в шапке)
+  @include media("md") {
+    min-height: 0;
+    padding: 0 var(--gutter);
+
+    &__content {
+      gap: 12px;
+      padding: 56px 0 44px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__text {
+      font-size: 15px;
+    }
+
+    &__br {
+      display: none;
+    }
+
+    .filter {
+      padding: 0;
+      background: none;
+    }
+
+    .filter__top {
+      display: none;
+    }
+  }
+}

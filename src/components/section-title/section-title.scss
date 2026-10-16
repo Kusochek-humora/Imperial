@@ -1,0 +1,87 @@
+@use "@/styles/abstracts" as *;
+
+// Плашка-заголовок секции на горизонтальной линии во всю ширину
+.section-title {
+  position: relative;
+  align-self: stretch; // линия во всю ширину и внутри .section-head
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--gutter);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba($black, 0.07);
+  }
+
+  &__label {
+    position: relative;
+    padding: 10px 20px;
+    background-color: $light;
+    font-weight: 400;
+    text-align: center;
+    @include t2;
+
+    @include media("md") {
+      font-size: 18px;
+    }
+  }
+
+  // на тёмном фоне
+  &--dark {
+    &::before {
+      background-color: rgba($white, 0.1);
+    }
+
+    .section-title__label {
+      background-color: #1f1f1f;
+      color: $white;
+    }
+  }
+
+  // на фото
+  &--glass .section-title__label {
+    background-color: #3c3c3c;
+    color: $white;
+  }
+}
+
+// Секция страницы: плашка-заголовок, под ней контент через 32px
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+// Плашка + H2 + описание: плашка → 32px → H2 → 16px → текст
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  &__title {
+    max-width: 640px;
+    padding: 0 var(--gutter);
+    font-weight: 400;
+    @include h2;
+  }
+
+  &__text {
+    max-width: 730px;
+    padding: 0 var(--gutter);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .section-title + .section-head__title {
+    margin-top: 16px;
+  }
+}

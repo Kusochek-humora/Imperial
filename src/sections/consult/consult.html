@@ -1,0 +1,40 @@
+<!-- Получить консультацию: на всех страницах перед подвалом.
+     Параметры: title — текст плашки; mod — consult--no-contacts (без карточки контактов, страница «Контакты») -->
+<section class="consult {{mod}}" id="consult">
+  <include src="src/components/section-title/section-title.html" text="{{title|Получить консультацию}}" mod="section-title--dark"></include>
+
+  <div class="consult__grid container">
+    <include src="src/components/contacts-card/contacts-card.html" mod="consult__contacts"></include>
+
+    <div class="consult__photo">
+      <img src="/src/assets/img/office.webp" alt="Бизнес-центр Capital Tower" width="228" height="372" loading="lazy" />
+    </div>
+
+    <form class="consult__form js-request-form" action="#" method="post">
+      <label class="visually-hidden" for="consult-name">Имя</label>
+      <input class="input" id="consult-name" type="text" name="name" placeholder="Имя" autocomplete="name" required />
+
+      <label class="visually-hidden" for="consult-phone">Телефон</label>
+      <input class="input" id="consult-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+
+      <label class="visually-hidden" for="consult-interest">Что вас интересует?</label>
+      <div class="select">
+        <select class="input" id="consult-interest" name="interest">
+          <option value="">Что вас интересует?</option>
+          <option value="buy">Купить объект</option>
+          <option value="rent">Арендовать объект</option>
+          <option value="sell">Продать объект</option>
+          <option value="lease">Сдать объект в аренду</option>
+          <option value="invest">Инвестиции</option>
+          <option value="other">Другое</option>
+        </select>
+        <icon name="chevron" class="select__icon"></icon>
+      </div>
+
+      <label class="visually-hidden" for="consult-comment">Комментарий</label>
+      <textarea class="input input--textarea" id="consult-comment" name="comment" placeholder="Комментарий"></textarea>
+
+      <button class="btn btn--gold btn--block" type="submit">Оставить заявку</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+
+// Главная: на мобильных блоки идут в другом порядке, чем на десктопе
+.page--home {
+  @include media("md") {
+    .hero { order: 0; }
+    .about { order: 1; }
+    .team { order: 2; }
+    .objects-preview--catalog { order: 3; }
+    .objects-preview--exclusive { order: 4; }
+    .owners { order: 5; }
+    .news-preview { order: 6; }
+    .faq { order: 7; }
+    .partners { order: 8; }
+    .consult { order: 9; }
+  }
+}

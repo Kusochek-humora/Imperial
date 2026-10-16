@@ -1,0 +1,130 @@
+@use "../abstracts" as *;
+
+// Кнопки: .btn + модификатор цвета
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  @include transition-simple;
+
+  &--gold {
+    background: $gold-gradient;
+    color: $white;
+
+    @include hover {
+      filter: brightness(1.08);
+    }
+  }
+
+  &--black {
+    background-color: $black;
+    color: $white;
+
+    @include hover {
+      background-color: #262626;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    color: $black;
+
+    @include hover {
+      background-color: $light;
+    }
+  }
+
+  &--outline {
+    border-color: $white;
+    color: $white;
+
+    @include hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &--wide {
+    width: 386px;
+    max-width: 100%;
+  }
+
+  &--block {
+    width: 100%;
+  }
+}
+
+// Поля формы
+.input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0;
+  background-color: $white;
+  letter-spacing: -0.05em;
+  outline: 1px solid transparent;
+  @include transition-simple;
+
+  &::placeholder {
+    color: rgba($black, 0.4);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline-color: $gold;
+  }
+
+  &--textarea {
+    height: 150px;
+    resize: vertical;
+  }
+}
+
+// select со своей стрелкой: <div class="select"><select class="input">…</select><icon name="chevron" class="select__icon"></icon></div>
+.select {
+  position: relative;
+
+  select {
+    appearance: none;
+    padding-right: 50px;
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+// Кнопка-иконка (поиск, избранное, бургер)
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  @include transition-simple;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}
+
+// Кнопка под сеткой карточек (отступ задаёт .section)
+.section-more {
+  display: flex;
+  justify-content: center;
+}
