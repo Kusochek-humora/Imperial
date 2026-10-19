@@ -27,7 +27,7 @@
       <a class="icon-btn header__icon" href="./favorites.html" aria-label="Избранное">
         <icon name="star"></icon>
       </a>
-      <a class="btn btn--outline header__cta" href="#consult">Оставить заявку</a>
+      <button class="btn btn--outline header__cta" type="button" data-modal-open="request">Оставить заявку</button>
       <a class="btn btn--gold header__cta" href="tel:+77016728810">+7 (701) 672 88 10</a>
     </div>
 
@@ -39,11 +39,11 @@
   <nav class="header__nav" aria-label="Основное меню">
     <ul class="nav">
       <li class="nav__item"><a class="nav__link" href="./about.html">О компании</a></li>
-      <li class="nav__item nav__item--dropdown js-dropdown">
-        <button class="nav__link nav__toggle js-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-services">
+      <li class="nav__item nav__item--dropdown">
+        <a class="nav__link nav__toggle" href="./services.html" aria-haspopup="true">
           Услуги
           <icon name="chevron-small" class="nav__chevron"></icon>
-        </button>
+        </a>
         <ul class="nav__dropdown" id="nav-services">
           <li><a class="nav__dropdown-link" href="./services-sellers.html">Для продавцов</a></li>
           <li><a class="nav__dropdown-link" href="./services-buyers.html">Для покупателей</a></li>
@@ -76,17 +76,18 @@
         </button>
       </form>
 
-      <ul class="search__list search__list--history" aria-label="Недавние запросы">
+      <ul class="search__list search__list--history js-search-queries" aria-label="Недавние запросы">
         <li><a class="search__link" href="./catalog.html?q=Бизнес+центр"><icon name="clock"></icon>Бизнес центр</a></li>
         <li><a class="search__link" href="./catalog.html?q=Офисы"><icon name="clock"></icon>Офисы</a></li>
         <li><a class="search__link" href="./catalog.html?q=Помещение"><icon name="clock"></icon>Помещение</a></li>
       </ul>
 
-      <ul class="search__list" aria-label="Подходящие объекты">
-        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Офис в бизнес-центре Almaty Plaza</a></li>
-        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Помещение свободного назначения в Park Commercial</a></li>
-        <li><a class="search__link" href="#"><icon name="arrow-up-right"></icon>Торговое помещение в River Park Plaza</a></li>
+      <ul class="search__list js-search-objects" aria-label="Подходящие объекты">
+        <li><a class="search__link" href="./product.html"><icon name="arrow-up-right"></icon>Офис в бизнес-центре Almaty Plaza</a></li>
+        <li><a class="search__link" href="./product.html"><icon name="arrow-up-right"></icon>Помещение свободного назначения в Park Commercial</a></li>
+        <li><a class="search__link" href="./product.html"><icon name="arrow-up-right"></icon>Торговое помещение в River Park Plaza</a></li>
       </ul>
+      <p class="search__empty js-search-empty" hidden>Ничего не найдено. Попробуйте изменить запрос.</p>
     </div>
   </div>
 </header>
@@ -114,8 +115,9 @@
     </nav>
 
     <div class="mobile-menu__contacts">
-      <a href="mailto:info@imperial.re">info@imperial.re</a>
+      <a class="mobile-menu__mail" href="mailto:info@imperial.re">info@imperial.re</a>
       <address>г.Алматы, БЦ Capital Tower, ул.Абиша Кекилбайулы 34</address>
+      <button class="btn btn--outline-dark btn--block" type="button" data-modal-open="request">Оставить заявку</button>
       <a class="btn btn--gold btn--block" href="tel:+77016728810">+7 (701) 672 88 10</a>
     </div>
   </div>

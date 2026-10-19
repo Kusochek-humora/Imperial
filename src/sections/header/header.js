@@ -3,34 +3,64 @@ import './header.scss';
 import { lockScroll, unlockScroll } from '@/js/scroll-lock';
 import { markActiveLinks } from '@/js/active-links';
 
-// Выпадающие списки (Услуги в меню и в мобильном меню): клик / Esc / клик вне
-function initDropdowns(header) {
-  const dropdowns = document.querySelectorAll('.js-dropdown');
+// Демо-данные подсказок, пока нет API поиска
+const QUERIES = ['Бизнес центр', 'Офисы', 'Офис класса А', 'Помещение', 'Помещение свободного назначения', 'Торговое помещение', 'Склад', 'Земельный участок', 'Аренда офиса', 'Купить офис'];
+const OBJECTS = [
+  'Офис в бизнес-центре Almaty Plaza',
+  'Офис в бизнес-центре Imperial Plaza',
+  'Помещение свободного назначения в Park Commercial',
+  'Торговое помещение в River Park Plaza',
+];
 
-  const setOpen = (dropdown, open) => {
-    dropdown.classList.toggle('is-open', open);
-    dropdown.querySelector('.js-dropdown-toggle').setAttribute('aria-expanded', String(open));
-  };
+const escapeHtml = (text) => text.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
-  dropdowns.forEach((dropdown) => {
-    dropdown.querySelector('.js-dropdown-toggle').addEventListener('click', () => {
-      setOpen(dropdown, !dropdown.classList.contains('is-open'));
-    });
+// выделяем совпадение с запросом
+function highlight(text, query) {
+  const i = text.toLowerCase().indexOf(query.toLowerCase());
+  if (i < 0) return escapeHtml(text);
+  return `${escapeHtml(text.slice(0, i))}<mark>${escapeHtml(text.slice(i, i + query.length))}</mark>${escapeHtml(text.slice(i + query.length))}`;
+}
+
+// Подсказки по введённым буквам: запросы + подходящие объекты
+function initSuggestions(panel) {
+  const input = panel.querySelector('.js-search-input');
+  const queries = panel.querySelector('.js-search-queries');
+  const objects = panel.querySelector('.js-search-objects');
+  const empty = panel.querySelector('.js-search-empty');
+  const initial = { queries: queries.innerHTML, objects: objects.innerHTML };
+  // иконки берём из уже отрисованной разметки (inline-svg собираются при сборке)
+  const arrowIcon = panel.querySelector('.js-search-objects .icon').outerHTML;
+  const searchIcon = panel.querySelector('.search__field-icon').outerHTML.replace('search__field-icon', '');
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+
+    if (!q) {
+      queries.innerHTML = initial.queries;
+      objects.innerHTML = initial.objects;
+      queries.setAttribute('aria-label', 'Недавние запросы');
+      queries.hidden = objects.hidden = false;
+      empty.hidden = true;
+      return;
+    }
+
+    const has = (text) => text.toLowerCase().includes(q.toLowerCase());
+    const foundQueries = QUERIES.filter(has).slice(0, 5);
+    const foundObjects = OBJECTS.filter(has).slice(0, 5);
+
+    queries.setAttribute('aria-label', 'Подсказки');
+    queries.innerHTML = foundQueries
+      .map((t) => `<li><a class="search__link" href="./catalog.html?q=${encodeURIComponent(t)}">${searchIcon}<span>${highlight(t, q)}</span></a></li>`)
+      .join('');
+    objects.innerHTML = foundObjects
+      .map((t) => `<li><a class="search__link" href="./product.html">${arrowIcon}<span>${highlight(t, q)}</span></a></li>`)
+      .join('');
+
+    queries.hidden = !foundQueries.length;
+    objects.hidden = !foundObjects.length;
+    empty.hidden = Boolean(foundQueries.length || foundObjects.length);
   });
 
-  document.addEventListener('click', (e) => {
-    header.querySelectorAll('.js-dropdown.is-open').forEach((dropdown) => {
-      if (!dropdown.contains(e.target)) setOpen(dropdown, false);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    header.querySelectorAll('.js-dropdown.is-open').forEach((dropdown) => {
-      setOpen(dropdown, false);
-      dropdown.querySelector('.js-dropdown-toggle').focus();
-    });
-  });
 }
 
 // Поиск под шапкой
@@ -39,10 +69,18 @@ function initSearch(header) {
   const opener = header.querySelector('.header__actions .js-search-toggle');
   if (!panel || !opener) return;
 
+  initSuggestions(panel);
+
   const setOpen = (open) => {
+    if (panel.hidden === !open) return;
     panel.hidden = !open;
     opener.setAttribute('aria-expanded', String(open));
-    if (open) panel.querySelector('.js-search-input').focus();
+    if (open) {
+      lockScroll();
+      panel.querySelector('.js-search-input').focus();
+    } else {
+      unlockScroll();
+    }
   };
 
   // на мобильных лупа открывает фильтр hero, если он есть на странице
@@ -124,7 +162,6 @@ export function initHeader() {
   if (!header) return;
 
   markActiveLinks();
-  initDropdowns(header);
   initSearch(header);
   initMobileMenu();
 }

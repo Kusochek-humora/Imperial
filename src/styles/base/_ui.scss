@@ -128,3 +128,14 @@
   display: flex;
   justify-content: center;
 }
+
+// рамка на белом фоне (кнопка заявки в мобильном меню)
+.btn--outline-dark {
+  border-color: $black;
+  color: $black;
+
+  @include hover {
+    background-color: $black;
+    color: $white;
+  }
+}

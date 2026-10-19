@@ -1,0 +1,16 @@
+<!-- Попап с короткой формой. Параметры: id, title, text, button, interest -->
+<dialog class="modal" id="modal-{{id}}" aria-labelledby="modal-{{id}}-title">
+  <div class="modal__box">
+    <button class="modal__close js-modal-close" type="button" aria-label="Закрыть"><icon name="close"></icon></button>
+    <h2 class="modal__title" id="modal-{{id}}-title">{{title}}</h2>
+    <p class="modal__text">{{text}}</p>
+    <form class="modal__form js-request-form" action="#" method="post">
+      <label class="visually-hidden" for="modal-{{id}}-name">Имя</label>
+      <input class="input input--light" id="modal-{{id}}-name" type="text" name="name" placeholder="Имя" autocomplete="name" required />
+      <label class="visually-hidden" for="modal-{{id}}-phone">Телефон</label>
+      <input class="input input--light" id="modal-{{id}}-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+      <input type="hidden" name="interest" value="{{interest|consult}}" />
+      <button class="btn btn--gold btn--block" type="submit">{{button|Оставить заявку}}</button>
+    </form>
+  </div>
+</dialog>

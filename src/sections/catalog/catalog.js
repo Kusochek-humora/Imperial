@@ -43,7 +43,8 @@ function initFavoritesPage() {
     update();
   });
 
-  catalog.querySelector('.js-favorites-clear').addEventListener('click', () => {
+  // очистка — после подтверждения в попапе
+  catalog.querySelector('.js-favorites-clear').addEventListener('modal:confirm', () => {
     grid.replaceChildren();
     update();
   });

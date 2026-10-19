@@ -63,9 +63,7 @@ $nav-height: 50px;
       }
     }
 
-    @include media("sm") {
-      font-size: 14px;
-    }
+
   }
 
   &__logo {
@@ -266,7 +264,7 @@ $nav-height: 50px;
     left: 0;
     right: 0;
     height: 100vh;
-    background-color: rgba($white, 0.4);
+    background-color: rgba($black, 0.55);
   }
 
   &[hidden] {
@@ -472,4 +470,26 @@ $nav-height: 50px;
       font-style: normal;
     }
   }
+}
+
+// подсказки поиска: совпадение выделено
+.search__link mark {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+}
+
+.search__empty {
+  margin-top: 20px;
+  opacity: 0.6;
+}
+
+.mobile-menu__mail,
+.mobile-menu__contacts address {
+  font-size: 16px;
+}
+
+// свой крестик закрытия — нативный в поле поиска не нужен
+.search__input::-webkit-search-cancel-button {
+  display: none;
 }

@@ -59,16 +59,32 @@
   gap: 20px;
   align-items: start;
 
-  &__photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__photo,
+  &__quote {
     height: 324px;
+    margin: 0;
+    overflow: hidden;
     background-color: $gray;
 
-    .icon {
-      width: 120px;
-      height: 120px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include media("md") {
+    &__photo {
+      height: 420px;
+
+      img {
+        object-position: top;
+      }
+    }
+
+    &__quote {
+      height: auto;
+      aspect-ratio: 505 / 324;
     }
   }
 
@@ -228,5 +244,17 @@
   // партнёрка: текст про вознаграждение выше фото
   .reward {
     order: 2;
+  }
+}
+
+#reward .split {
+  align-items: center;
+}
+
+.reward {
+  min-height: 320px;
+
+  > img {
+    opacity: 0.5;
   }
 }

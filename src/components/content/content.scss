@@ -102,7 +102,7 @@
 
   @include media("md") {
     grid-template-columns: 1fr;
-    padding: 0;
+    padding: 0 var(--gutter);
 
     &__title {
       margin-bottom: 16px;
@@ -188,6 +188,14 @@
 
 // Список «название — описание» с разделителями
 .row-list {
+  align-self: start;
+  padding: 0 10px;
+  background-color: $white;
+
+  @include media("md") {
+    padding: 0;
+  }
+
   &__item {
     display: grid;
     grid-template-columns: 297px 1fr;
@@ -570,5 +578,29 @@
   .brand__title,
   .brand__text {
     text-align: center;
+  }
+}
+
+.prose__footer {
+  font-size: 16px;
+}
+
+// линия над подвалом статьи без увеличенного шрифта
+.prose__footer--line {
+  padding-top: 40px;
+  border-top: 1px solid rgba($black, 0.1);
+}
+
+// карточки «Оценка / Стратегия / Сделка»: заголовки 20px
+.glass-band__title {
+  font-size: 20px;
+}
+
+// AluGlass / Crystal Cleaning: больше воздуха перед «Всё в одной системе»
+.brand + .section-head {
+  margin-top: 48px;
+
+  @include media("md") {
+    margin-top: 32px;
   }
 }

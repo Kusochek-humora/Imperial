@@ -65,8 +65,13 @@
   gap: 32px;
   padding-top: 36px;
 
+  // от крошек до плашки: 56px по макету, на мобильных 60px
   > .breadcrumbs {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
+
+    @include media("md") {
+      margin-bottom: 28px;
+    }
   }
 
   @include media("md") {

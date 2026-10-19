@@ -35,6 +35,8 @@ import { initContent } from './components/content/content';
 import { initCountUp } from './js/count-up';
 import { initReveal } from './js/reveal';
 import { initForms } from './components/form/form';
+import { initModals } from './components/modal/modal';
+import { initVideoBg } from './components/video-bg/video-bg';
 
 // каждая функция сама проверяет, есть ли её блок на странице
 initHeader();
@@ -50,4 +52,6 @@ initCatalog();
 initNewsList();
 initCountUp();
 initForms();
+initModals();
+initVideoBg();
 initReveal();

@@ -1,3 +1,9 @@
 <label class="select-menu__option"><input type="radio" name="{{name}}" value="new" checked /><span>Сначала новые</span></label>
 <label class="select-menu__option"><input type="radio" name="{{name}}" value="old" /><span>Сначала старые</span></label>
 <label class="select-menu__option"><input type="radio" name="{{name}}" value="date" /><span>По дате</span></label>
+<!-- период: появляется при выборе «По дате» -->
+<div class="select-menu__dates js-select-dates">
+  <label class="select-menu__date"><span>от</span><input type="date" name="{{name}}_from" /></label>
+  <label class="select-menu__date"><span>до</span><input type="date" name="{{name}}_to" /></label>
+  <button class="btn btn--gold btn--block js-select-apply" type="button">Применить</button>
+</div>

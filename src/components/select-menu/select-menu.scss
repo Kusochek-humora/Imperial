@@ -100,3 +100,62 @@
     }
   }
 }
+
+@include media("sm") {
+  .catalog__bar .select-menu,
+  .news-list__bar .select-menu {
+    width: 100%;
+  }
+
+  .catalog__bar .select-menu__toggle,
+  .news-list__bar .select-menu__toggle {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .catalog__bar .select-menu__list,
+  .news-list__bar .select-menu__list {
+    left: 0;
+    right: 0;
+    transform: translateY(-6px);
+  }
+
+  .catalog__bar .select-menu.is-open .select-menu__list,
+  .news-list__bar .select-menu.is-open .select-menu__list {
+    transform: none;
+  }
+}
+
+// поля периода — только когда выбрано «По дате»
+.select-menu__dates {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.select-menu__list:has(input[value="date"]:checked) .select-menu__dates {
+  display: flex;
+}
+
+.select-menu__date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 38px;
+  padding: 0 12px;
+  background-color: $light;
+
+  span {
+    width: 18px;
+    opacity: 0.5;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: none;
+    outline: none;
+  }
+}

@@ -9,6 +9,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    background-color: $white;
   }
 
   th,
@@ -76,13 +77,13 @@
     th,
     td {
       padding: 10px 12px;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     thead th + th,
     &--compare &__mark {
-      width: 92px;
-      font-size: 13px;
+      width: 100px;
+      font-size: 14px;
     }
 
     &__mark {

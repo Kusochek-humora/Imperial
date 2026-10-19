@@ -9,7 +9,6 @@
   padding: 20px 30px;
   background-color: $white;
   color: $black;
-  letter-spacing: normal;
 
   @include media("sm") {
     padding: 20px;
@@ -28,6 +27,10 @@
 
   &__value {
     font-style: normal;
+
+    address {
+      font-style: normal;
+    }
   }
 
   &__link {
@@ -75,34 +78,42 @@
   border: 1px solid #e5e5e5;
 }
 
-// Страница «Контакты»: карточка — фото-слайдер — карта
+// Страница «Контакты»: карточка — фото-слайдер — карта.
+// Высоту ряда задаёт карточка контактов, фото и карта растягиваются под неё
 .contacts {
   display: grid;
   grid-template-columns: minmax(300px, 395fr) minmax(0, 400fr) minmax(0, 587fr);
   gap: 10px 29px;
-  align-items: stretch;
 
-  &__photo {
+  &__photo,
+  &__map {
     position: relative;
     min-width: 0;
-
-    .slider__track {
-      --per-view: 1;
-
-      gap: 0;
-      height: 100%;
-      min-height: 420px;
-    }
-
-    .slider__slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    min-height: 0;
   }
 
-  &__map {
-    min-height: 420px;
+  &__photo .slider__track {
+    --per-view: 1;
+
+    position: absolute;
+    inset: 0;
+    gap: 0;
+    height: auto;
+  }
+
+  &__photo .slider__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__map.map {
+    height: auto;
+  }
+
+  &__map .map__frame {
+    position: absolute;
+    inset: 0;
   }
 
   @include media("lg") {
@@ -110,6 +121,7 @@
 
     &__map {
       grid-column: 1 / -1;
+      min-height: 360px;
     }
   }
 
@@ -118,19 +130,12 @@
 
     &__map {
       order: 1;
+      min-height: 420px;
     }
 
     &__photo {
       order: 2;
-    }
-
-    &__photo .slider__track {
       height: 420px;
-      min-height: 0;
-    }
-
-    &__map {
-      min-height: 420px;
     }
   }
 }

@@ -163,6 +163,7 @@ function initForm(form) {
         showError(f, '');
       });
       showToast('Спасибо! Заявка отправлена, мы скоро свяжемся с вами');
+      form.dispatchEvent(new CustomEvent('request:sent', { bubbles: true }));
     } catch {
       showToast('Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам');
     } finally {

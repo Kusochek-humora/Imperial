@@ -1,0 +1,106 @@
+@use "@/styles/abstracts" as *;
+
+// Попапы на <dialog>: фокус, Esc и затемнение — силами браузера
+.modal {
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 470px;
+  max-height: calc(100% - 40px);
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: $black;
+  overflow: visible;
+
+  &::backdrop {
+    background-color: rgba($black, 0.55);
+  }
+
+  &[open] {
+    animation: modal-in 0.25s ease;
+  }
+
+  &[open]::backdrop {
+    animation: modal-fade 0.25s ease;
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 36px 30px 30px;
+    background-color: $white;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    @include transition-simple;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    @include hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  &__text {
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  &--confirm &__box {
+    padding-top: 30px;
+  }
+
+  @include media("sm") {
+    &__box {
+      padding: 36px 20px 20px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+}

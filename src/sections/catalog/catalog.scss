@@ -64,7 +64,7 @@
   &__count {
     margin-left: auto;
     color: rgba($black, 0.5);
-    font-size: 18px;
+    font-size: 16px;
 
     @include media("sm") {
       display: none;
@@ -98,6 +98,11 @@
     .catalog__count,
     .catalog__pages {
       display: none;
+    }
+
+    .catalog__clear {
+      order: 2;
+      margin-left: auto;
     }
 
     .catalog__bar {

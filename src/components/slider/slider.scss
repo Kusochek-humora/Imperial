@@ -15,7 +15,9 @@
     grid-auto-flow: column;
     gap: 10px;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
 

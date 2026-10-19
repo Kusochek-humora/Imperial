@@ -77,6 +77,20 @@ function renderIcons(html, root) {
   });
 }
 
+// Типографика: неразрывный пробел после коротких предлогов/союзов и перед тире,
+// чтобы они не «висели» в конце строки. Меняется только текст между тегами.
+const SHORT_WORDS = 'в|во|и|с|со|к|ко|о|об|от|у|а|на|за|по|до|не|из|для|без|при|про|под|над|но|или|что|как|бы|же|ли';
+const SHORT_RE = new RegExp(`(?<=^|[\\s(«"])(${SHORT_WORDS}) +`, 'giu');
+const NBSP = ' ';
+
+function typograf(html) {
+  return html.replace(/(<(script|style)\b[\s\S]*?<\/\2>)|>([^<]+)</g, (match, raw, _tag, text) => {
+    if (raw || !text.trim()) return match;
+    const fixed = text.replace(SHORT_RE, `$1${NBSP}`).replace(/ +— /g, `${NBSP}— `);
+    return `>${fixed}<`;
+  });
+}
+
 export default function htmlInclude() {
   let root;
 
@@ -87,7 +101,7 @@ export default function htmlInclude() {
     },
     transformIndexHtml: {
       order: 'pre',
-      handler: (html) => renderIcons(render(html, root), root),
+      handler: (html) => typograf(renderIcons(render(html, root), root)),
     },
     configureServer(server) {
       // при правке html-партиала или иконки перезагружаем страницу

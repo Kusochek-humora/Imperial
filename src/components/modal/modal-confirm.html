@@ -1,0 +1,11 @@
+<!-- Попап подтверждения. Параметры: id, title, text, cancel, confirm. Кнопка подтверждения — .js-modal-confirm -->
+<dialog class="modal modal--confirm" id="modal-{{id}}" aria-labelledby="modal-{{id}}-title">
+  <div class="modal__box">
+    <h2 class="modal__title" id="modal-{{id}}-title">{{title}}</h2>
+    <p class="modal__text">{{text}}</p>
+    <div class="modal__actions">
+      <button class="btn btn--line js-modal-close" type="button">{{cancel|Отмена}}</button>
+      <button class="btn btn--gold js-modal-confirm" type="button">{{confirm|Подтвердить}}</button>
+    </div>
+  </div>
+</dialog>

@@ -106,11 +106,4 @@
     gap: 10px;
   }
 
-  // на мобильных кнопка с белой рамкой
-  &__submit {
-    @include media("sm") {
-      border-color: $white;
-      background: transparent;
-    }
-  }
 }

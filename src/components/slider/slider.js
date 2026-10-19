@@ -28,6 +28,19 @@ export function initSliders(root = document) {
       updateDots();
     }
 
+    // автопрокрутка: data-autoplay="мс"; пауза при наведении и когда вкладка не видна
+    const delay = Number(slider.dataset.autoplay);
+    if (delay && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let paused = false;
+      slider.addEventListener('pointerenter', () => (paused = true));
+      slider.addEventListener('pointerleave', () => (paused = false));
+      setInterval(() => {
+        if (paused || document.hidden) return;
+        const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + track.clientWidth, behavior: 'smooth' });
+      }, delay);
+    }
+
     if (!prev || !next) return;
 
     const step = () => {

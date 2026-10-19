@@ -10,9 +10,9 @@ export function markActiveLinks(root = document) {
   });
 
   // «Услуги»: подсвечиваем, если открыта одна из страниц выпадающего списка
-  root.querySelectorAll('.js-dropdown').forEach((dropdown) => {
-    if (dropdown.querySelector('[aria-current="page"]')) {
-      dropdown.querySelector('.js-dropdown-toggle').classList.add('is-current');
+  root.querySelectorAll('.nav__item--dropdown').forEach((dropdown) => {
+    if (dropdown.querySelector('.nav__dropdown [aria-current="page"]')) {
+      dropdown.querySelector('.nav__toggle').classList.add('is-current');
     }
   });
 }

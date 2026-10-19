@@ -44,7 +44,7 @@
     <div class="product__actions">
       <a class="btn btn--black product__download" href="#" download>Скачать презентацию</a>
       <button class="product__fav js-fav" type="button" aria-label="В избранное" aria-pressed="false"><icon name="star"></icon></button>
-      <a class="btn btn--gold product__visit" href="#consult">Записаться на просмотр</a>
+      <button class="btn btn--gold product__visit" type="button" data-modal-open="visit">Записаться на просмотр</button>
     </div>
   </aside>
 
@@ -89,3 +89,7 @@
     <include src="src/components/map/map.html"></include>
   </div>
 </section>
+
+<include src="src/components/modal/modal-form.html" id="visit" title="Запишитесь на просмотр"
+  text="Увидьте объект лично: оцените планировку, состояние и расположение. Согласуем удобное для вас время."
+  button="Записаться" interest="visit"></include>
