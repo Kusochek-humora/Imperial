@@ -604,3 +604,20 @@
     margin-top: 32px;
   }
 }
+
+// список сверху выровнен по заголовку, снизу — по карточке с фото
+@media (min-width: 769px) {
+  .split:has(> .row-list) {
+    align-items: stretch;
+  }
+
+  .split > .row-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  .split > .row-list .row-list__item {
+    flex: 1;
+  }
+}

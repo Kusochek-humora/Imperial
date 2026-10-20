@@ -100,9 +100,15 @@
       display: none;
     }
 
+    // десктоп: справа; мобильные: над сортировкой во всю ширину
     .catalog__clear {
       order: 2;
       margin-left: auto;
+
+      @include media("sm") {
+        order: -1;
+        margin-left: 0;
+      }
     }
 
     .catalog__bar {

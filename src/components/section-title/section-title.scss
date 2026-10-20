@@ -66,7 +66,7 @@
   text-align: center;
 
   &__title {
-    max-width: 640px;
+    max-width: 560px;
 
     &:empty {
       display: none;
@@ -78,7 +78,7 @@
   }
 
   &__text {
-    max-width: 730px;
+    max-width: 600px;
     padding: 0 var(--gutter);
 
     &:empty {
@@ -89,4 +89,9 @@
   .section-title + .section-head__title {
     margin-top: 16px;
   }
+}
+
+// H1 страниц в макете без переносов
+h1.section-head__title {
+  max-width: none;
 }

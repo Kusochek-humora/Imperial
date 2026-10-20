@@ -161,3 +161,29 @@
     min-height: 210px;
   }
 }
+
+// «Для…» на мобильных (по макету): название в одну строку, описание шире, фото ~40%
+@include media("sm") {
+  .link-cards--3 .link-card {
+    min-height: 214px;
+    padding: 16px;
+
+    .link-card__head {
+      max-width: none;
+      gap: 16px;
+    }
+
+    .link-card__title {
+      white-space: nowrap;
+    }
+
+    .link-card__text {
+      max-width: 62%;
+      margin-top: 14px;
+    }
+
+    .link-card__img {
+      width: 40%;
+    }
+  }
+}
