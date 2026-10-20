@@ -621,3 +621,16 @@
     flex: 1;
   }
 }
+
+// консалтинг / финансирование: карточка с фото тянется до низа списка — нижние края совпадают
+@media (min-width: 769px) {
+  .split:has(> .row-list) > .split__body {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+
+    .media-card {
+      flex: 1;
+    }
+  }
+}
