@@ -22,14 +22,34 @@ export function initVideoBg(root = document) {
         disablekb: 1,
         iv_load_policy: 3,
         modestbranding: 1,
+        enablejsapi: 1, // чтобы узнать, что видео реально играет
+        origin: location.origin,
       });
       const iframe = document.createElement('iframe');
       iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
       iframe.title = 'Фоновое видео';
       iframe.tabIndex = -1;
       iframe.allow = 'autoplay; encrypted-media';
-      // плеер YouTube появляется с чёрным экраном — показываем после небольшой паузы
-      iframe.addEventListener('load', () => setTimeout(() => block.classList.add('is-ready'), 1200));
+      // показываем видео только когда оно играет: если браузер заблокировал автозапуск
+      // (часто на телефонах), остаётся фото, а не кнопка YouTube
+      const onMessage = (e) => {
+        if (e.source !== iframe.contentWindow) return;
+        let data;
+        try {
+          data = JSON.parse(e.data);
+        } catch {
+          return;
+        }
+        const state = data.info?.playerState ?? (data.event === 'onStateChange' ? data.info : undefined);
+        if (state === 1) {
+          setTimeout(() => block.classList.add('is-ready'), 300);
+          window.removeEventListener('message', onMessage);
+        }
+      };
+      window.addEventListener('message', onMessage);
+      iframe.addEventListener('load', () => {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1 }), '*');
+      });
       block.append(iframe);
     });
   };
