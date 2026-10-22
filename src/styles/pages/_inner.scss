@@ -258,3 +258,18 @@
     opacity: 0.5;
   }
 }
+
+// «О компании» на мобильных: фото основателя и цитата во всю ширину экрана, текст с отступами
+@include media("md") {
+  .history--bleed.container {
+    padding: 0;
+  }
+
+  .history--bleed .history__text {
+    padding: 0 var(--gutter);
+  }
+
+  .career__title {
+    font-size: 20px;
+  }
+}

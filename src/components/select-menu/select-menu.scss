@@ -159,3 +159,18 @@
     outline: none;
   }
 }
+
+@include media("sm") {
+  .catalog__bar .select-menu__toggle,
+  .news-list__bar .select-menu__toggle {
+    position: relative;
+    justify-content: center;
+    height: 46px;
+  }
+
+  .catalog__bar .select-menu__chevron,
+  .news-list__bar .select-menu__chevron {
+    position: absolute;
+    right: 16px;
+  }
+}

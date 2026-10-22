@@ -95,3 +95,10 @@
 h1.section-head__title {
   max-width: none;
 }
+
+@include media("md") {
+  .section-head__title:has(.br-m) {
+    max-width: none;
+    font-size: 22px;
+  }
+}

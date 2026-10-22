@@ -634,3 +634,10 @@
     }
   }
 }
+
+@include media("md") {
+  .split__title:has(.br-m),
+  .brand__title:has(.br-m) {
+    font-size: 22px;
+  }
+}

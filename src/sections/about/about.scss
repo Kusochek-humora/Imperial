@@ -41,7 +41,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-color: rgba($black, 0.4);
+      z-index: 1;
+      background-color: rgba($black, 0.55);
     }
 
     @include media("md") {
@@ -157,5 +158,15 @@
 .about--page .about__stats {
   @include media("md") {
     order: -1;
+  }
+}
+
+.about__slogan-text {
+  z-index: 2;
+}
+
+@include media("md") {
+  .about__grid.container {
+    padding: 0;
   }
 }

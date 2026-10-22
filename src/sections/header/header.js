@@ -83,18 +83,8 @@ function initSearch(header) {
     }
   };
 
-  // на мобильных лупа открывает фильтр hero, если он есть на странице
-  const heroFilter = document.querySelector('[data-search-filter]');
-  const mobile = window.matchMedia('(max-width: 768px)');
-
   header.querySelectorAll('.js-search-toggle').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (heroFilter && mobile.matches && btn === opener) {
-        heroFilter.dispatchEvent(new Event('filter:open'));
-        return;
-      }
-      setOpen(panel.hidden);
-    });
+    btn.addEventListener('click', () => setOpen(panel.hidden));
   });
 
   document.addEventListener('keydown', (e) => {

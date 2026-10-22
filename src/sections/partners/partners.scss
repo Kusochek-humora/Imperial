@@ -56,3 +56,25 @@ $logo-gap: 40px;
     transform: translateX(-100%);
   }
 }
+
+// простой текстовый заголовок вместо плашки (заказчики AluGlass / Crystal Cleaning)
+.partners__title {
+  display: none;
+  font-weight: 400;
+  text-align: center;
+  @include h2;
+
+  @include media("md") {
+    font-size: 22px;
+  }
+}
+
+.partners--plain {
+  .section-title {
+    display: none;
+  }
+
+  .partners__title {
+    display: block;
+  }
+}

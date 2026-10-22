@@ -262,18 +262,6 @@
       grid-template-columns: 1fr;
     }
 
-    // «Записаться на просмотр» закреплена внизу экрана
-    &__visit {
-      position: fixed;
-      z-index: 90;
-      left: var(--gutter);
-      right: var(--gutter);
-      bottom: 12px;
-      min-height: 48px !important;
-      // полупрозрачная белая плашка вокруг кнопки
-      outline: var(--gutter) solid rgba($white, 0.5); // плашка до краёв экрана
-      box-shadow: none;
-    }
 
     &__about {
       order: 2;
@@ -327,10 +315,28 @@
   }
 }
 
-// карточка объекта перекрывается закреплённой кнопкой — добавляем место снизу
+.product-sticky {
+  display: none;
+}
+
 @include media("md") {
-  .page--product {
-    padding-bottom: 72px;
+  .product-sticky {
+    position: sticky;
+    z-index: 90;
+    bottom: 0;
+    display: block;
+    margin-top: -56px; // без отступа секций — вплотную к консультации
+    padding: 12px var(--gutter);
+    background-color: rgba($white, 0.5);
+
+    .btn {
+      min-height: 48px;
+    }
+  }
+
+  // кнопка в карточке на мобильных не нужна — есть закреплённая
+  .product__visit {
+    display: none !important;
   }
 }
 
@@ -373,5 +379,24 @@
     .product-location {
       margin-bottom: -56px; // компенсирует gap .page на мобильных
     }
+  }
+}
+
+@include media("sm") {
+  .product__price {
+    font-size: 26px;
+  }
+}
+
+@include media("md") {
+  .read-more__toggle {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  // «Расположение объекта» — на чёрном фоне, вплотную к консультации
+  .product-location {
+    padding-top: 20px;
+    background-color: $black;
   }
 }

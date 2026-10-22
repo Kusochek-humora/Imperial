@@ -139,3 +139,9 @@
     color: $white;
   }
 }
+
+@include media("md") {
+  .section > .section-more {
+    margin-top: -16px;
+  }
+}

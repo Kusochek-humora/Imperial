@@ -108,3 +108,12 @@ main:focus {
   flex-direction: column;
   gap: 10px;
 }
+
+// перенос строки только на мобильных (заголовки по макету)
+.br-m {
+  display: none;
+
+  @include media("md") {
+    display: inline;
+  }
+}

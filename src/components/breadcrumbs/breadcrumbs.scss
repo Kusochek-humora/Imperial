@@ -95,3 +95,9 @@
     height: 180px;
   }
 }
+
+@include media("md") {
+  .page-banner--bleed.container {
+    padding: 0;
+  }
+}

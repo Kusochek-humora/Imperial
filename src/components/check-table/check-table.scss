@@ -111,3 +111,33 @@
     color: $white;
   }
 }
+
+@include media("md") {
+  .check-table--compare {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter);
+
+    table {
+      min-width: 560px;
+    }
+
+    td:first-child,
+    thead th:first-child {
+      width: 260px;
+    }
+
+    .check-table__actions {
+      position: sticky;
+      left: 0;
+      width: calc(100vw - var(--gutter) * 2);
+    }
+  }
+}
+
+@include media("md") {
+  .check-table--compare .check-table__group th {
+    text-align: left;
+  }
+}
