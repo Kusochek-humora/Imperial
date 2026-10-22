@@ -161,21 +161,21 @@
     }
 
     .link-card__title {
-      font-size: 19px;
+      font-size: 18px;
       white-space: nowrap;
     }
 
     // текст не заходит на фото
     .link-card__text {
-      max-width: 58%;
+      max-width: 47%;
       margin-top: 14px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    // фото уже, угол круче — длинные названия («Для арендодателей») не заходят на фото
+    // фото по макету (~52–58% ширины; у нас шрифт шире Helvetica), срез по диагонали
     .link-card__img {
-      width: 36%;
-      clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+      width: 52%;
+      clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 }
@@ -258,4 +258,51 @@
       color: $black;
     }
   }
+}
+
+// «Для…» на мобильных: фото по макету (58%), текст обтекает диагональный срез
+// через shape-outside той же формы, что и clip-path — на фото ничего не заходит
+@include media("sm") {
+  .link-cards--3 .link-card {
+    display: block;
+    height: 214px;
+    min-height: 0;
+
+    // фото поверх правой части карточки; текст идёт под прозрачной частью среза
+    .link-card__img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 58%;
+      height: 100%;
+      margin: 0;
+      // срез подобран вручную под макет; обтекание (shape-outside) не нужно
+      clip-path: polygon(59% 0, 100% 0, 100% 101%, 0 156%);
+    }
+
+    .link-card__head {
+      display: flex;
+      max-width: none;
+    }
+
+    .link-card__title {
+      white-space: normal;
+    }
+
+    .link-card__text {
+      display: block;
+      max-width: 64%;
+    }
+
+    .link-card__arrow {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      margin: 0;
+    }
+  }
+}
+
+.link-card__num {
+  flex-shrink: 0;
 }
