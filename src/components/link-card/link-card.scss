@@ -164,13 +164,15 @@
       white-space: nowrap;
     }
 
+    // текст не заходит на фото
     .link-card__text {
-      max-width: 62%;
+      max-width: 58%;
       margin-top: 14px;
+      font-size: 15px;
     }
 
     .link-card__img {
-      width: 45%;
+      width: 42%;
     }
   }
 }

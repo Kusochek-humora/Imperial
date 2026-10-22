@@ -113,7 +113,7 @@
 }
 
 @include media("md") {
-  .check-table--compare {
+  .check-table--compare .check-table__scroll {
     overflow-x: auto;
     overscroll-behavior-x: contain;
     margin: 0 calc(var(--gutter) * -1);
@@ -126,12 +126,6 @@
     td:first-child,
     thead th:first-child {
       width: 260px;
-    }
-
-    .check-table__actions {
-      position: sticky;
-      left: 0;
-      width: calc(100vw - var(--gutter) * 2);
     }
   }
 }
