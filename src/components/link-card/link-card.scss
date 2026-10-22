@@ -170,32 +170,48 @@
     }
 
     .link-card__img {
-      width: 40%;
+      width: 45%;
     }
   }
 }
 
+// баннеры каталога на мобильных (по макету): текст слева, белая стрелка в углу фото
 @include media("sm") {
   .catalog-links .link-card {
-    justify-content: center;
-    min-height: 190px;
-    padding: 16px;
+    justify-content: flex-start;
+    min-height: 132px;
+    padding: 20px;
 
     .link-card__head {
-      max-width: 55%;
+      max-width: 60%;
     }
 
+    .link-card__title {
+      font-size: 20px;
+    }
+
+    // текст шире — может заходить под диагональ фото, в две строки
     .link-card__text {
-      max-width: 52%;
-      margin-top: 10px;
+      max-width: 64%;
+      margin-top: 14px;
+      font-size: 15px;
+      opacity: 0.7;
     }
 
     .link-card__arrow {
-      margin-top: 16px;
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      background: $white;
+      color: $black;
     }
 
     .link-card__img {
-      width: 46%;
+      width: 45%;
     }
   }
 }

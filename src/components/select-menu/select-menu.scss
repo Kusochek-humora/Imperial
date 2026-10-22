@@ -168,9 +168,9 @@
     height: 46px;
   }
 
-  .catalog__bar .select-menu__chevron,
-  .news-list__bar .select-menu__chevron {
-    position: absolute;
-    right: 16px;
+  // стрелка сразу за текстом, всё по центру
+  .catalog__bar .select-menu__toggle,
+  .news-list__bar .select-menu__toggle {
+    gap: 14px;
   }
 }
