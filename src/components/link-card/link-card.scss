@@ -161,6 +161,7 @@
     }
 
     .link-card__title {
+      font-size: 19px;
       white-space: nowrap;
     }
 
@@ -171,8 +172,10 @@
       font-size: 15px;
     }
 
+    // фото уже, угол круче — длинные названия («Для арендодателей») не заходят на фото
     .link-card__img {
-      width: 42%;
+      width: 36%;
+      clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 }
