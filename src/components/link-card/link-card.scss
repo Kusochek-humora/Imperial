@@ -220,3 +220,42 @@
     }
   }
 }
+
+.m-only {
+  display: none;
+}
+
+// «Для…» на мобильных: свой порядок и чередование светлых/тёмных карточек (по макету)
+@include media("sm") {
+  .link-cards--3 .link-card {
+    order: var(--m-order, 0);
+  }
+
+  .d-only {
+    display: none;
+  }
+
+  .m-only {
+    display: inline;
+  }
+
+  .link-card.link-card--m-light {
+    background-color: $light;
+    color: $black;
+
+    .link-card__num {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  .link-card.link-card--m-dark {
+    background-color: $black;
+    color: $white;
+
+    .link-card__num {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}
