@@ -160,3 +160,14 @@
     }
   }
 }
+
+// вся карточка — ссылка: при наведении подсвечиваем название
+.product-card__title {
+  @include transition-simple;
+}
+
+@media (hover: hover) {
+  .product-card:hover .product-card__title {
+    color: #b87618;
+  }
+}
